@@ -12,19 +12,9 @@ DHT dht(DHTPIN, DHTTYPE);   //   DHT11 DHT21 DHT22
 // Connect pin 4 (on the right) of the sensor to GROUND
 // Connect a 10K resistor from pin 2 (data) to pin 1 (power) of the sensor if not already installed on the board.
 
-
-#if defined(ARDUINO_ARCH_AVR)
-    #define debug  Serial
-
-#elif defined(ARDUINO_ARCH_SAMD) ||  defined(ARDUINO_ARCH_SAM)
-    #define debug  SerialUSB
-#else
-    #define debug  Serial
-#endif
-
 void setup() {
 
-    debug.begin(115200);
+    Serial.begin(115200);
     Wire.begin();
 
     /*if using WIO link,must pull up the power pin.*/
@@ -40,27 +30,33 @@ void loop() {
     tempHumidityValues = readDHT22(DHTPIN);
     int rawSoilMoisture = readSoilMoisture(A2);
     // Note to myself A1 seems to have a defect!
-    soilMoisture = scaleSoilMoistureValues(rawSoilMoisture);
-    Serial.println(String(tempHumidityValues[0]) + "%, " + String(tempHumidityValues[1]) + "C");
-    Serial.println(soilMoisture);
+//     soilMoisture = scaleSoilMoistureValues(rawSoilMoisture);
+    Serial.println(tempHumidityValues, rawSoilMoisture);
+//     Serial.println(String(tempHumidityValues[0]) + "%, " + String(tempHumidityValues[1]) + "C");
+//     Serial.println(soilMoisture);
     delay(1500);
 }
 
 float *readDHT22(int pin){
   static float sensorValues[2] = {0};
-  Serial.println(String(sensorValues[0]));
+//   Serial.println(String(sensorValues[0]));
   dht.readTempAndHumidity(sensorValues);
   return sensorValues;
 }
 
-int scaleSoilMoistureValues(int rawSensorValue){
-  const int moistValue = 318; // This value shall be the value of your sensor in pure water
-  const int dryValue = 604; // This value shall be the value of your sensor in air.
-  int scaledValue = map(rawSensorValue, moistValue, dryValue, 100, 0);
-  return scaledValue;
-}
+/* This will be on the computer-side to decide on!*/
+// int scaleSoilMoistureValues(int rawSensorValue){
+//   const int moistValue = 318; // This value shall be the value of your sensor in pure water
+//   const int dryValue = 604; // This value shall be the value of your sensor in air.
+//   int scaledValue = map(rawSensorValue, moistValue, dryValue, 100, 0);
+//   return scaledValue;
+// }
 
-int readSoilMoisture(int pin){
+float readSoilMoisture(int pin){
+  /*
+  Reading from a given soilMoisture-Sensor
+  returning the raw-values <float>
+  */
   float sensorValue = 0;
   return analogRead(pin);
 }
