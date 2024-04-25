@@ -5,44 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Architecture.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Architecture/BusTransceiver.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Bus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/Architecture/Buses.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/BusPluginFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/BusPluginInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/EthernetBusPlugin/SocketConfigs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/EthernetBusPlugin/Tcp_Udp_sockets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/EthernetBusPlugin/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/EthernetBusPlugin/test_UnitTests/SocketMock.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/EthernetBusPlugin/test_UnitTests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/EthernetBusPlugin/test_UnitTests/test_Tcp_Udp_sockets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/SerialBusPlugin/SerialBus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/SerialBusPlugin/SerialBusConfig.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/SerialBusPlugin/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/SerialBusPlugin/test_UnitTests/SerialBusMock.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/SerialBusPlugin/test_UnitTests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/SerialBusPlugin/test_UnitTests/test_SerialBus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/BusPlugins/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Encoding/EncodingFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Encoding/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Encoding/test_UnitTests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/Encoding/test_UnitTests/test_BusEncodings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/UnitTests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/UnitTests/test_BusFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/UnitTests/test_BusTransceiver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/test_UnitTests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/test_UnitTests/test_BusFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BusTransactions/test_UnitTests/test_BusTransceiver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Requirements.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/asyncRunner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/runner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/test_UnitTests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/test_UnitTests/test_asyncRunner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/test_UnitTests/test_threadRunner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Runners/threadRunner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/OpenGreenHouse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OpenGreenHouse.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dht-reader/dht-reader.ino" beforeDir="false" afterPath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Architecture.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Architecture.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +34,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -73,19 +50,63 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/home/markus/Dokumente/GitHub/OpenGreenHouse",
+    "last_opened_file_path": "C:/Users/marku/Documents/GitHub/OpenGreenHouse",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marku\Documents\GitHub\OpenGreenHouse" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_asyncRunner.MyTestCase">
+    <configuration name="test_asyncRunner" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="OpenGreenHouse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Runners/test_UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Runners/test_UnitTests/test_asyncRunner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_asyncRunner.MyTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OpenGreenHouse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Runners/test_UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_asyncRunner.MyTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_asyncRunner.MyTestCase" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -109,5 +130,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Runners/test_UnitTests/test_asyncRunner.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

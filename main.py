@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
 
+from Runners import ThreadRunner
 from BusTransactions.BusFactory import BusFactory
 
 
 class Main:
 
     def __init__(self):
-        pass
+        self.__threadRunner: ThreadRunner = ThreadRunner()
 
     def someMethod(self):
         pass
@@ -16,4 +17,4 @@ class Main:
         # reading raw data from the sensorboard
         # has to go to a thread later
         bus = BusFactory.produceSerialTransceiver()
-        bus.readBusUntilStopFlag(self.someMethod)
+        self.__threadRunner.addTask(self.someMethod)
