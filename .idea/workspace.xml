@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302_datasheet.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302_sensor_adapter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302_sensor_adapter_org.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/examples/AM2302-Sensor_Example/AM2302-Sensor_Example.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/examples/AM2302_sensor_health_check/AM2302_sensor_health_check.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/keywords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/library.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/library.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/src/AM2302-Sensor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/src/AM2302-Sensor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/DHT.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/DHT.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/Grove_Temperature_And_Humidity_Sensor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/examples/DHTtester/DHTtester.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/keywords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/library.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" beforeDir="false" afterPath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,21 +35,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/home/markus/Dokumente/GitHub/OpenGreenHouse/sensorBoard",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/markus/Dokumente/GitHub/OpenGreenHouse/sensorBoard&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sensorBoard" />
@@ -145,6 +122,7 @@
       <workItem from="1713895161815" duration="1891000" />
       <workItem from="1714070159073" duration="744000" />
       <workItem from="1714155744734" duration="2131000" />
+      <workItem from="1714159248659" duration="6059000" />
     </task>
     <servers />
   </component>
