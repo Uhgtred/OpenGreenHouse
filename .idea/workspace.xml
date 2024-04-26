@@ -5,18 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Runners/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runners/asyncRunner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runners/runner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runners/test_UnitTests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runners/test_UnitTests/test_asyncRunner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runners/test_UnitTests/test_threadRunner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runners/threadRunner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OpenGreenHouse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OpenGreenHouse.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302_datasheet.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302_sensor_adapter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/docs/AM2302_sensor_adapter_org.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/examples/AM2302-Sensor_Example/AM2302-Sensor_Example.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/examples/AM2302_sensor_health_check/AM2302_sensor_health_check.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/keywords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/library.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/library.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/src/AM2302-Sensor.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/AM2302-Sensor/src/AM2302-Sensor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/DHT.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/DHT.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/Grove_Temperature_And_Humidity_Sensor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/examples/DHTtester/DHTtester.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/keywords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/Grove_Temperature_And_Humidity_Sensor/library.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorBoard/libraries/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Architecture.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Architecture.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" beforeDir="false" afterPath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "C:/Users/marku/Documents/GitHub/OpenGreenHouse",
+    "last_opened_file_path": "/home/markus/Dokumente/GitHub/OpenGreenHouse/sensorBoard",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +75,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sensorBoard" />
       <recent name="C:\Users\marku\Documents\GitHub\OpenGreenHouse" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -69,6 +83,7 @@
   <component name="RunManager" selected="Python tests.Python tests for test_asyncRunner.MyTestCase">
     <configuration name="test_asyncRunner" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="OpenGreenHouse" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -79,6 +94,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Runners/test_UnitTests/test_asyncRunner.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -90,6 +106,7 @@
     </configuration>
     <configuration name="Python tests for test_asyncRunner.MyTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="OpenGreenHouse" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
@@ -97,6 +114,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_asyncRunner.MyTestCase&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
@@ -125,6 +143,8 @@
       <option name="presentableId" value="Default" />
       <updated>1713812618388</updated>
       <workItem from="1713895161815" duration="1891000" />
+      <workItem from="1714070159073" duration="744000" />
+      <workItem from="1714155744734" duration="2131000" />
     </task>
     <servers />
   </component>

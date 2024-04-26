@@ -17,4 +17,4 @@ class Main:
         # reading raw data from the sensorboard
         # has to go to a thread later
         bus = BusFactory.produceSerialTransceiver()
-        self.__threadRunner.addTask(self.someMethod)
+        self.__threadRunner.addTask(bus.readBusUntilStopFlag, self.someMethod)

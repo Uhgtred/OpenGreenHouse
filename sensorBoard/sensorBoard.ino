@@ -1,4 +1,4 @@
-#include "Grove_Temperature_And_Humidity_Sensor.h"
+#include <Grove_Temperature_And_Humidity_Sensor.h>
 
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
 
@@ -31,9 +31,9 @@ void loop() {
     int rawSoilMoisture = readSoilMoisture(A2);
     // Note to myself A1 seems to have a defect!
 //     soilMoisture = scaleSoilMoistureValues(rawSoilMoisture);
-    Serial.println(tempHumidityValues, rawSoilMoisture);
-//     Serial.println(String(tempHumidityValues[0]) + "%, " + String(tempHumidityValues[1]) + "C");
-//     Serial.println(soilMoisture);
+    Serial.println(String(*tempHumidityValues) + "% " + String(*tempHumidityValues) + "C " + String(rawSoilMoisture));
+    // Serial.println(String(tempHumidityValues[0]) + "%, " + String(tempHumidityValues[1]) + "C");
+    // Serial.println(soilMoisture);
     delay(1500);
 }
 
