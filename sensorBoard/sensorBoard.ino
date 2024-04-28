@@ -34,7 +34,6 @@ void loop() {
     DynamicJsonDocument sensorValuesJson(100);
     DynamicJsonDocument *documentPointer = &sensorValuesJson;
     float* tempHumidityValues;
-    int soilMoisture = 0;
     tempHumidityValues = readDHT22(DHTPIN);
     int arraySize = sizeof(tempHumidityValues);
     sensorValuesJson = addJsonArray(sensorValuesJson, "TempHumid", tempHumidityValues, arraySize);
