@@ -15,6 +15,6 @@ class Main:
 
     def main(self):
         # reading raw data from the sensorboard
-        # has to go to a thread later
+        # TODO: has to go to a thread later and write to a database!
         bus = BusFactory.produceSerialTransceiver()
         self.__threadRunner.addTask(bus.readBusUntilStopFlag, self.someMethod)
