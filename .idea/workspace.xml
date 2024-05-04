@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorReader/Sensors/Sensor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorReader/Sensors/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,21 +50,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/home/markus/Dokumente/GitHub/OpenGreenHouse",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.toDoOptions",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/markus/Dokumente/GitHub/OpenGreenHouse&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -147,7 +146,8 @@
       <workItem from="1714418481160" duration="2725000" />
       <workItem from="1714588687772" duration="565000" />
       <workItem from="1714673592827" duration="2005000" />
-      <workItem from="1714677443962" duration="5175000" />
+      <workItem from="1714677443962" duration="5494000" />
+      <workItem from="1714854814659" duration="7300000" />
     </task>
     <servers />
   </component>
