@@ -15,28 +15,11 @@ class SensorReader:
         self.__sensorTypes: dict[list[Sensor]] = {}
 
     def getSensorReading(self) -> json:
-        rawData = self.__busReaderMethod()
-        self.__storeValues(rawData)
-
-    def __storeValues(self, rawData: json):
-        rawData = self.__loadJsonData(rawData)
-        rawData.get()
-
-    def __createSensor(self, rawData: dict):
-        """
-        Method for creating sensor-instances and
-        :param rawData:
-        :return:
-        """
-        for sensorClass in self.__sensors:
-            self.__sensorTypes[sensorClass.type] = rawData.get(sensorClass.type)
-            sensorValues: list = rawData.get(sensorClass.type)  # sensors contains a list with multiple values
-            for valueCounter, value in enumerate(sensorValues):
-                newSensorInstance = sensorClass(valueCounter, value=value)  # This would make the sensors have an id that is only unique to the sensortype but not to all sensors
-                self.__sensorTypes.setdefault(sensorClass.type).append(newSensorInstance)  # creating sensor-instances and adding those to the sensortypes
+        rawData: json = self.__busReaderMethod()
+        dictData: dict = self.__loadJsonDataAsDict(rawData)
 
     @staticmethod
-    def __loadJsonData(jsonData: json) -> dict:
+    def __loadJsonDataAsDict(jsonData: json) -> dict:
         """
         Method for converting a json into a dictionary.
         :param jsonData: Json-document that is to be converted.

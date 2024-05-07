@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" beforeDir="false" afterPath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +147,7 @@
       <workItem from="1714932786934" duration="5946000" />
       <workItem from="1714977973072" duration="3291000" />
       <workItem from="1715024197676" duration="1784000" />
+      <workItem from="1715106182868" duration="2698000" />
     </task>
     <servers />
   </component>
