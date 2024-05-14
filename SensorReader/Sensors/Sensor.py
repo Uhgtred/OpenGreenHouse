@@ -11,4 +11,12 @@ class Sensor(Protocol):
     """
     type: str
     id: int
-    value: any
+    __value: any
+
+    @property
+    def value(self) -> any:
+        return self.__value
+
+    @value.setter
+    def value(self, value: any) -> None:
+        pass
