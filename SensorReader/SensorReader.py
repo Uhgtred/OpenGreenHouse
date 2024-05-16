@@ -4,7 +4,7 @@
 import json
 
 from SensorReader.SensorReaderConfig import SensorReaderConfig
-from SensorReader.Sensors.Sensor import Sensor
+from SensorReader.Sensors.SensorInterface import Sensor
 
 
 class SensorReader:
@@ -13,14 +13,14 @@ class SensorReader:
         self.__busReaderMethod: callable = config.busReaderMethod
         self.__sensorLists: list[list[Sensor]] = config.listOfSensorLists
 
-
     def getSensorReading(self) -> json:
         rawData: json = self.__busReaderMethod()
         dictData: dict = self.__loadJsonDataAsDict(rawData)
         self.__iterateSensorLists(self.__sensorLists, dictData)
         # Todo: add Values which are being stored to the self.__sensorLists by __iterateSensorLists to a database!
 
-    def __iterateSensorLists(self, sensorLists: list[list[Sensor]], dictData: dict) -> None:
+    @staticmethod
+    def __iterateSensorListsAndStoreValues(sensorLists: list[list[Sensor]], dictData: dict) -> None:
         """
         Method that reads any sensor in the list of lists and adds the according value in the data-dictionary to it's value!
         :param sensorLists: List of lists of sensors.

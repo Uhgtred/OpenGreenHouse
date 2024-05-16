@@ -5,7 +5,7 @@ import BusTransactions
 from SensorReader import SensorReader
 from SensorReader.SensorReaderConfig import SensorReaderConfig
 from SensorReader.Sensors.HumiditySensor import HumiditySensor
-from SensorReader.Sensors.Sensor import Sensor
+from SensorReader.Sensors.SensorInterface import Sensor
 from SensorReader.Sensors.SoilMoistureSensor import SoilMoistureSensor
 
 

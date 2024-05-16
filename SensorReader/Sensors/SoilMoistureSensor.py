@@ -2,7 +2,7 @@
 # @author: Markus Kösters
 from dataclasses import dataclass
 
-from SensorReader.Sensors.Sensor import Sensor
+from SensorReader.Sensors.SensorInterface import Sensor
 
 
 @dataclass
