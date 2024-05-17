@@ -34,6 +34,10 @@ class Main:
         for resource in self.__resources:
             self.api.add_resource(resource, self.__resources.get(resource))
 
+    def main(self):
+        self.__addRoutes()
+        self.runServer()
+
     @property
     def getResources(self) -> dict:
         """
@@ -46,7 +50,9 @@ class Main:
         """
         Method that starts the api server in a separate process and adds routes to the api instance.
         """
-        self.__addRoutes()
+
+
+
         self.__process = Process(target=self.__serverSetup, daemon=True)
         self.__process.start()
 
