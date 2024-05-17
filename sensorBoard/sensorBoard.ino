@@ -72,7 +72,7 @@ void iterateTempHumiditySensors(struct tempHumidityData *dataArray, int *pinArra
 
 void sendJsonBySerial(DynamicJsonDocument *jsonDoc){
     /*
-    Method for serializing a json-document. This is needed for sending the json-document via bus.
+    Method for serializing and sending a json-document. This is needed for sending the json-document via bus.
     This will be done by reference. So there is no return-value.
     :param jsonDoc: json-document that will be serialized.
     */
