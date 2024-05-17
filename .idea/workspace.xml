@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/Sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderBuilder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +153,8 @@
       <workItem from="1715712244575" duration="5009000" />
       <workItem from="1715717295598" duration="606000" />
       <workItem from="1715883937432" duration="2245000" />
+      <workItem from="1715970401236" duration="205000" />
+      <workItem from="1715970647201" duration="6116000" />
     </task>
     <servers />
   </component>
