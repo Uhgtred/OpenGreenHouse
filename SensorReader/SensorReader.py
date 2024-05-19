@@ -78,7 +78,7 @@ class SensorReader(SensorReaderInterface):
         :param sensorID: ID that is going to be stored for the sensor-instance created.
         :param sensorClass: Dataclass that describes the structure of the sensor.
         """
-        sensorObject: type = sensorClass(sensorID)
+        sensorObject: type = sensorClass(sensorID, None)
         self.__sensorListDictionary.setdefault(sensorType, []).append(sensorObject)
 
     def subscribeToSensorData(self, callbackMethod: callable) -> None:
