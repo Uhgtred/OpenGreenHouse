@@ -10,12 +10,15 @@ Adafruit_SHT31 sht31 = Adafruit_SHT31();
 // DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
+    /*
+    Method for setting up any connections! 
+    */
     Serial.begin(115200);
     // initializing i2c-connection with sht31 sensor
     if (! sht31.begin(0x44)) {   
       Serial.println("Couldn't find SHT31");
     }
-    // dht.begin();
+    // dht.begin(); # has to be activated if dht22 shall be used (Not recommended! Guessing the humidity is as precise as this sensor.)
 }
 
 const int tempHumiditySensorSize = 1;
@@ -112,8 +115,9 @@ void addJsonTempHumidityValue(DynamicJsonDocument *jsonDoc, String name, struct 
     jsonDoc->add(innerDocument);
 }
 
-tempHumidityData readSHT31(int pin){
+tempHumidityData readSHT31(int address){
     /*
+    Todo: Reading from a specified address is currently not supported. This means that reading multiple SHT31 is curently not supported neither.
     Method for reading a SHT31-sensor
     :param pin: unused for the moment. Maybe there will be the possibility to read from multiple sensors later.
     :return: The raw values <tempHumidityData> read from the sensor.
@@ -124,18 +128,19 @@ tempHumidityData readSHT31(int pin){
     return sensorData;
 }
 
-// tempHumidityData readDHT22(){
-//     /*
-//     Method for reading a DHT22-sensor (Not recommended! That sensor-precision is shit!).
-//     :return: The raw-values <int> read from the sensor.
-//     */
-//     struct tempHumidityData sensorData;
-//     float sensorValueArray[2];
-//     dht.readTempAndHumidity(sensorValueArray);
-//     sensorData.temp = sensorValueArray[0];
-//     sensorData.humidity = sensorValueArray[1];
-//     return sensorData;
-// }
+tempHumidityData readDHT22(){
+    /*
+    Method for reading a DHT22-sensor. 
+    (Not recommended! That sensor-precision is shit! If possible take an SHT31 instead. That sensor seems to be much more reliable according to my testing).
+    :return: The raw-values <int> read from the sensor.
+    */
+    struct tempHumidityData sensorData;
+    float sensorValueArray[2];
+    dht.readTempAndHumidity(sensorValueArray);
+    sensorData.temp = sensorValueArray[0];
+    sensorData.humidity = sensorValueArray[1];
+    return sensorData;
+}
 
 int readSoilMoisture(int pin){
     /*
