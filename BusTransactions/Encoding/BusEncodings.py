@@ -37,6 +37,8 @@ class ArduinoSerialEncoding(EncodingProtocol):
         Method for decoding a message received from a bus.
         :param message: Message from bus that needs to be decoded.
         """
+        if not message:
+            return None
         if isinstance(message, bytes):
             message = message.decode()
         if message.endswith('&'):

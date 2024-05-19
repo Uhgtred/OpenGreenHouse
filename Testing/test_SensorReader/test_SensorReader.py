@@ -3,22 +3,24 @@
 import json
 import unittest
 from unittest.mock import MagicMock, patch
+
+from BusTransactions.BusFactory import BusFactory
 from SensorReader import SensorReader
 from SensorReader.SensorReaderBuilder import SensorReaderBuilder
 
 
 class TestSensorReader(unittest.TestCase):
     def setUp(self):
-        self.busReaderMethod = MagicMock(return_value=json.dumps({"type": "value"}))  # mock your bus reader behavior here.
-        self.sensorReader = SensorReaderBuilder().addHumidityTemperatureSensor(1).addSoilMoistureSensor(3).build()
+        self.sensorReader = SensorReaderBuilder(stub=True).addHumidityTemperatureSensor(1).addSoilMoistureSensor(3).build()
 
     def test_readSensorData(self):
         self.sensorReader.setSensor(3, 'type', MagicMock())
-        self.sensorReader.readSensorData()
+        self.sensorReader.subscribeToSensorData()
         # Asserts go here
 
     def test_setSensor(self):
         self.sensorReader.setSensor(3, 'type', MagicMock())
+        self.sensorReader.
         # you may want to assert that the sensors were added as expected
 
     def test_subscribeToSensorData(self):

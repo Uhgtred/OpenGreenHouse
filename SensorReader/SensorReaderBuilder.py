@@ -12,8 +12,12 @@ class SensorReaderBuilder:
     Class for creating a SensorReader-instance with all wished configurations.
     """
 
-    def __init__(self):
-        self.sensorReader = SensorReader.SensorReader(BusFactory.produceSerialTransceiver())
+    def __init__(self, stub: bool = False) -> None:
+        """
+        Init-Method for the SensorReaderBuilder class.
+        :param stub: Bool deciding on whether the bus is real or a stub/mock.
+        """
+        self.sensorReader = SensorReader.SensorReader(BusFactory.produceSerialTransceiver(stub=stub))
 
     def addHumidityTemperatureSensor(self, amount: int) -> object:
         """

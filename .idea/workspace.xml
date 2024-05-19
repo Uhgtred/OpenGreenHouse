@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Testing/test_SensorReader/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderBuilder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,22 +49,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_SensorReader.TestSensorReader.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sensor-board",
-    "last_opened_file_path": "/home/markus/Dokumente/GitHub/OpenGreenHouse",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_SensorReader.TestSensorReader.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sensor-board&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/markus/Dokumente/GitHub/OpenGreenHouse&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -180,6 +177,7 @@
       <workItem from="1715970647201" duration="6116000" />
       <workItem from="1716058879612" duration="1906000" />
       <workItem from="1716144171281" duration="2293000" />
+      <workItem from="1716150013288" duration="1436000" />
     </task>
     <servers />
   </component>
@@ -198,6 +196,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OpenGreenHouse$.coverage" NAME=" Coverage Results" MODIFIED="1716147770559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/test_SensorReader" />
+    <SUITE FILE_PATH="coverage/OpenGreenHouse$.coverage" NAME=" Coverage Results" MODIFIED="1716151111801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/test_SensorReader" />
   </component>
 </project>
