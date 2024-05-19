@@ -19,6 +19,7 @@ void setup() {
       Serial.println("Couldn't find SHT31");
     }
     // dht.begin(); # has to be activated if dht22 shall be used (Not recommended! Guessing the humidity is as precise as this sensor.)
+    // Todo: receive a setup-message from the Serial-connection which contains at least the information about the frequency with which the bus shall be read!
 }
 
 const int tempHumiditySensorSize = 1;
