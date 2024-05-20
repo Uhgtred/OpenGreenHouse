@@ -45,7 +45,7 @@ void loop() {
 
     sendJsonBySerial(documentPointer);
     Serial.println();
-    delay(1500);
+    delay(60000);
 }
 
 void iterateSoilMoistureSensors(float *dataArray, int *pinArray, int arraySize){
@@ -129,19 +129,19 @@ tempHumidityData readSHT31(int address){
     return sensorData;
 }
 
-tempHumidityData readDHT22(){
-    /*
-    Method for reading a DHT22-sensor. 
-    (Not recommended! That sensor-precision is shit! If possible take an SHT31 instead. That sensor seems to be much more reliable according to my testing).
-    :return: The raw-values <int> read from the sensor.
-    */
-    struct tempHumidityData sensorData;
-    float sensorValueArray[2];
-    dht.readTempAndHumidity(sensorValueArray);
-    sensorData.temp = sensorValueArray[0];
-    sensorData.humidity = sensorValueArray[1];
-    return sensorData;
-}
+// tempHumidityData readDHT22(){
+//     /*
+//     Method for reading a DHT22-sensor. 
+//     (Not recommended! That sensor-precision is shit! If possible take an SHT31 instead. That sensor seems to be much more reliable according to my testing).
+//     :return: The raw-values <int> read from the sensor.
+//     */
+//     struct tempHumidityData sensorData;
+//     float sensorValueArray[2];
+//     dht.readTempAndHumidity(sensorValueArray);
+//     sensorData.temp = sensorValueArray[0];
+//     sensorData.humidity = sensorValueArray[1];
+//     return sensorData;
+// }
 
 int readSoilMoisture(int pin){
     /*
