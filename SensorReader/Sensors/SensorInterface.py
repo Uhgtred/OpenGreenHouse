@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Sensor(ABC):
+class SensorInterface(ABC):
     """
     Dataclass for prescribing the structure of a Sensor-object.
     """

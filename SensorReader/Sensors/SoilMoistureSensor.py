@@ -2,11 +2,11 @@
 # @author: Markus Kösters
 from dataclasses import dataclass
 
-from SensorReader.Sensors.SensorInterface import Sensor
+from SensorReader.Sensors.SensorInterface import SensorInterface
 
 
 @dataclass
-class SoilMoistureSensor(Sensor):
+class SoilMoistureSensor(SensorInterface):
     id: int
     # Todo: Make this getter and setter thing working so each time when the value is being changed, it is also being corrected.
     __value: int = 0

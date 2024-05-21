@@ -58,18 +58,19 @@ class SensorReader(SensorReaderInterface):
         data: dict = json.loads(jsonData)
         return data
 
-    def setSensor(self, amount: int, sensorType: str, sensorClass: callable, sensorID: int = None) -> None:
+    def setSensor(self, amount: int, sensorType: str, sensorClass: callable) -> None:
         """
         Setter-method for the humiditySensors
         :param amount: Number of sensor that will be added to the sensorListDictionary.
         :param sensorType: Type of which the created sensorObject is.
         :param sensorClass: Dataclass that describes the structure of the sensor.
-        :param sensorID: ID that is going to be stored for the sensor-instance created. By default the id is just iterating over the amount of sensors.
         """
+        currentListLength = len(self.__sensorListDictionary.get(sensorType))
         for idCounter in range(amount):
-            if sensorID:
-                self.__addSensorOfType(sensorType, sensorID, sensorClass)
-            self.__addSensorOfType(sensorType, idCounter + 1, sensorClass)
+            # setting the current id to the last element of the list + the idCounter
+            id_ = idCounter + 1 + currentListLength
+            currentListLength = len(self.__sensorListDictionary.get(sensorType))
+            self.__addSensorOfType(sensorType, id_, sensorClass)
 
     def __addSensorOfType(self, sensorType: str, sensorID: int, sensorClass: callable) -> None:
         """

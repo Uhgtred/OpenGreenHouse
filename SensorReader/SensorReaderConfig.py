@@ -4,7 +4,7 @@
 from dataclasses import dataclass
 
 import BusTransactions
-from SensorReader.Sensors.SensorInterface import Sensor
+from SensorReader.Sensors.SensorInterface import SensorInterface
 
 
 @dataclass
@@ -12,5 +12,5 @@ class SensorReaderConfig:
     """
     Dataclass setting the configuration of the sensor reader.
     """
-    listOfSensorLists: list[list[Sensor]]
+    listOfSensorLists: list[list[SensorInterface]]
     busReaderMethod: callable = BusTransactions.BusFactory.BusFactory.produceSerialTransceiver()

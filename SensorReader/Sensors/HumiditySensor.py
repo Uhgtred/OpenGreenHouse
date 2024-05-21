@@ -3,11 +3,11 @@
 
 from dataclasses import dataclass
 
-from SensorReader.Sensors.SensorInterface import Sensor
+from SensorReader.Sensors.SensorInterface import SensorInterface
 
 
 @dataclass
-class HumiditySensor(Sensor):
+class HumiditySensor(SensorInterface):
     """
     Data-class for storing information about one Temperature-Humidity Sensor.
     """

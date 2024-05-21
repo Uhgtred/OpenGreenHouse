@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderBuilder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_SensorReader.TestSensorReader" />
         <item itemvalue="Python tests.Python tests for test_asyncRunner.MyTestCase" />
+        <item itemvalue="Python tests.Python tests for test_SensorReader.TestSensorReader" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +181,7 @@
       <workItem from="1716058879612" duration="1906000" />
       <workItem from="1716144171281" duration="2293000" />
       <workItem from="1716150013288" duration="1436000" />
+      <workItem from="1716315526774" duration="1438000" />
     </task>
     <servers />
   </component>
