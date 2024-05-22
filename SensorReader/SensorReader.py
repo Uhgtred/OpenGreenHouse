@@ -46,10 +46,13 @@ class SensorReader(SensorReaderInterface):
         :param dictData: Dictionary containing the sensor data.
         """
         print(sensorListDictionary)
-        for sensorListKey, sensorList in sensorListDictionary:
+        for sensorListKey, sensorList in sensorListDictionary.items():
             for sensorIdCounter, sensorObject in enumerate(sensorList):
-                sensorObject.value = dictData.get(sensorObject.type)[sensorIdCounter]
-
+                try:
+                    sensorObject.value = dictData.get(sensorObject.type)[sensorIdCounter]
+                except TypeError:
+                    raise TypeError(f'[SensorReader]: Sensordata has no value with type {sensorObject.type}!')
+                
     @staticmethod
     def __loadJsonDataAsDict(jsonData: json) -> dict:
         """

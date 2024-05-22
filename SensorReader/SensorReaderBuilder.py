@@ -19,7 +19,6 @@ class SensorReaderBuilder:
         """
         self.sensorReader = SensorReader.SensorReader(BusFactory.produceSerialTransceiver(stub=stub).readSingleMessage)
 
-
     def addHumidityTemperatureSensor(self, amount: int) -> object:
         """
         Method for adding a Humidity-temperature-sensor to the SensorReader-instance.
