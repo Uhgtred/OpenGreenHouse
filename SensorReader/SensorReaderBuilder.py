@@ -17,11 +17,8 @@ class SensorReaderBuilder:
         Init-Method for the SensorReaderBuilder class.
         :param stub: Bool deciding on whether the bus is real or a stub/mock.
         """
-<<<<<<< Updated upstream
-        self.sensorReader = SensorReader.SensorReader(BusFactory.produceSerialTransceiver(stub=stub))
-=======
         self.sensorReader = SensorReader.SensorReader(BusFactory.produceSerialTransceiver(stub=stub).readSingleMessage)
->>>>>>> Stashed changes
+
 
     def addHumidityTemperatureSensor(self, amount: int) -> object:
         """
