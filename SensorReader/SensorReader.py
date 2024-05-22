@@ -3,30 +3,48 @@
 
 import json
 
-from SensorReader.SensorReaderConfig import SensorReaderConfig
-from SensorReader.Sensors.SensorInterface import Sensor
+from SensorReader.SensorReaderInterface import SensorReaderInterface
 
 
-class SensorReader:
+class SensorReader(SensorReaderInterface):
+    """
+    Class for Reading raw sensor-values from a bus.
+    """
 
-    def __init__(self, config: SensorReaderConfig):
-        self.__busReaderMethod: callable = config.busReaderMethod
-        self.__sensorLists: list[list[Sensor]] = config.listOfSensorLists
+    def __init__(self, busReaderMethod: callable):
+        self.__busReaderMethod: callable = busReaderMethod
+        self.__sensorListDictionary: dict[str, list[object]] = {}
+        self.__subscribers: set[callable] = set()
 
-    def getSensorReading(self) -> json:
+    def readSensorData(self) -> None:
+        """
+        Method for reading sensor-values from a bus.
+        """
         rawData: json = self.__busReaderMethod()
         dictData: dict = self.__loadJsonDataAsDict(rawData)
-        self.__iterateSensorLists(self.__sensorLists, dictData)
-        # Todo: add Values which are being stored to the self.__sensorLists by __iterateSensorLists to a database!
+        if len(self.__sensorListDictionary) > 0:
+            self.__iterateSensorListsAndStoreValues(self.__sensorListDictionary, dictData)
+        else:
+            raise AttributeError('[SensorReader]: No Sensors have been initialized. Cannot read sensors!')
 
     @staticmethod
-    def __iterateSensorListsAndStoreValues(sensorLists: list[list[Sensor]], dictData: dict) -> None:
+    def __notifySubscribers(subscribers: set[callable], data: dict) -> None:
+        """
+        Method for notifying subscribers about sensor-values.
+        :param subscribers: Subscribers to notify.
+        :param data: Data that will be provided to subscribers.
+        """
+        for subscriber in subscribers:
+            subscriber(data)
+
+    @staticmethod
+    def __iterateSensorListsAndStoreValues(sensorListDictionary: dict[str, list[callable]], dictData: dict) -> None:
         """
         Method that reads any sensor in the list of lists and adds the according value in the data-dictionary to it's value!
-        :param sensorLists: List of lists of sensors.
+        :param sensorLists: Dictionary containing lists of sensors.
         :param dictData: Dictionary containing the sensor data.
         """
-        for sensorList in sensorLists:
+        for sensorListKey, sensorList in sensorListDictionary:
             for sensorIdCounter, sensorObject in enumerate(sensorList):
                 sensorObject.value = dictData.get(sensorObject.type)[sensorIdCounter]
 
@@ -39,3 +57,34 @@ class SensorReader:
         """
         data: dict = json.loads(jsonData)
         return data
+
+    def setSensor(self, amount: int, sensorType: str, sensorClass: callable) -> None:
+        """
+        Setter-method for the humiditySensors
+        :param amount: Number of sensor that will be added to the sensorListDictionary.
+        :param sensorType: Type of which the created sensorObject is.
+        :param sensorClass: Dataclass that describes the structure of the sensor.
+        """
+        currentListLength = len(self.__sensorListDictionary.get(sensorType))
+        for idCounter in range(amount):
+            # setting the current id to the last element of the list + the idCounter
+            id_ = idCounter + 1 + currentListLength
+            currentListLength = len(self.__sensorListDictionary.get(sensorType))
+            self.__addSensorOfType(sensorType, id_, sensorClass)
+
+    def __addSensorOfType(self, sensorType: str, sensorID: int, sensorClass: callable) -> None:
+        """
+        Method for adding a sensor of any type to the sensorListDictionary.
+        :param sensorType: Type of the sensor, so it can be added to the dictionary at a specific value
+        :param sensorID: ID that is going to be stored for the sensor-instance created.
+        :param sensorClass: Dataclass that describes the structure of the sensor.
+        """
+        sensorObject: type = sensorClass(sensorID, None)
+        self.__sensorListDictionary.setdefault(sensorType, []).append(sensorObject)
+
+    def subscribeToSensorData(self, callbackMethod: callable) -> None:
+        """
+        Method for adding a subscriber to the SensorReader. Each subscriber can only be added once.
+        :param callbackMethod: Method that will be called if an update of sensorData is received.
+        """
+        self.__subscribers.add(callbackMethod)

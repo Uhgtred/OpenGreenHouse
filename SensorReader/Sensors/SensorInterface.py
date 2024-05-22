@@ -5,20 +5,20 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Sensor(ABC):
+class SensorInterface(ABC):
     """
     Dataclass for prescribing the structure of a Sensor-object.
     """
-    type: str
     id: int
     __value: any
+    type: str
 
-    @abstractmethod
     @property
+    @abstractmethod
     def value(self) -> any:
         return self.__value
 
-    @abstractmethod
     @value.setter
+    @abstractmethod
     def value(self, value: any) -> None:
         pass
