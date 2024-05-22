@@ -1,33 +1,55 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
+
 import json
 import unittest
+from dataclasses import dataclass
+from typing import Optional
 from unittest.mock import MagicMock, patch
 
-from BusTransactions.BusFactory import BusFactory
 from SensorReader import SensorReader
-from SensorReader.SensorReaderBuilder import SensorReaderBuilder
-from SensorReader.Sensors.SensorInterface import SensorInterface
 
 
-class testSensor(SensorInterface):
-    id = 0
-    value: any = 0
+@dataclass
+class testSensor:
+    sensorID: int
     type = 'test'
+    __value: Optional[any] = 0
+
+    @property
+    def value(self) -> any:
+        return self.__value
+
+    @value.setter
+    def value(self, value: any) -> None:
+        self.__value = value
+
+
+def busReaderStub():
+    # structure that will be returned by the sensor-reader.
+    return json.dumps({'tempHumidity': [{'temperature': 0, 'humidity': 0}], 'soilMoisture': [0, 0, 0]})
+
 
 class TestSensorReader(unittest.TestCase):
     def setUp(self):
-        self.testSensor = testSensor()
-        self.sensorReader = SensorReaderBuilder(stub=True).addHumidityTemperatureSensor(1).addSoilMoistureSensor(3).build()
+        self.testSensor = testSensor
+        self.sensorReader = SensorReader.SensorReader(busReaderStub)
+        self.data = []
+
+    def receiveSensorData(self, data: any):
+        self.data.extend(data)
 
     def test_readSensorData(self):
-        self.sensorReader.setSensor(3, 'type', MagicMock())
-        self.sensorReader.subscribeToSensorData()
-        # Asserts go here
+        self.sensorReader.setSensor(3, self.testSensor.type, self.testSensor)
+        self.sensorReader.subscribeToSensorData(self.receiveSensorData)
+        self.sensorReader.readSensorData()
+        self.assertListEqual(self.data, [0, 1, 2])
 
     def test_setSensor(self):
-        self.sensorReader.setSensor(3, self.testSensor.id, testSensor)
-        # you may want to assert that the sensors were added as expected
+        self.sensorReader.setSensor(3, self.testSensor.type, self.testSensor)
+        sensorList = self.sensorReader._SensorReader__sensorListDictionary.get(self.testSensor.type)
+        sensorIDList = [sensor.sensorID for sensor in sensorList]
+        self.assertListEqual(sensorIDList, [1, 2, 3])
 
     def test_subscribeToSensorData(self):
         callback = MagicMock()
@@ -45,4 +67,3 @@ class TestSensorReader(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-

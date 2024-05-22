@@ -4,6 +4,7 @@
 import json
 
 from SensorReader.SensorReaderInterface import SensorReaderInterface
+from SensorReader.Sensors.SensorInterface import SensorInterface
 
 
 class SensorReader(SensorReaderInterface):
@@ -44,6 +45,7 @@ class SensorReader(SensorReaderInterface):
         :param sensorLists: Dictionary containing lists of sensors.
         :param dictData: Dictionary containing the sensor data.
         """
+        print(sensorListDictionary)
         for sensorListKey, sensorList in sensorListDictionary:
             for sensorIdCounter, sensorObject in enumerate(sensorList):
                 sensorObject.value = dictData.get(sensorObject.type)[sensorIdCounter]
@@ -55,8 +57,11 @@ class SensorReader(SensorReaderInterface):
         :param jsonData: Json-document that is to be converted.
         :return: Dictionary containing the data of the json-document.
         """
-        data: dict = json.loads(jsonData)
-        return data
+        try:
+            data: dict = json.loads(jsonData)
+            return data
+        except TypeError as error:
+            raise TypeError('[SensorReader]: Could not load json-data as dictionary.', error)
 
     def setSensor(self, amount: int, sensorType: str, sensorClass: callable) -> None:
         """
@@ -65,21 +70,21 @@ class SensorReader(SensorReaderInterface):
         :param sensorType: Type of which the created sensorObject is.
         :param sensorClass: Dataclass that describes the structure of the sensor.
         """
+        self.__sensorListDictionary.setdefault(sensorType, [])
         currentListLength = len(self.__sensorListDictionary.get(sensorType))
         for idCounter in range(amount):
             # setting the current id to the last element of the list + the idCounter
             id_ = idCounter + 1 + currentListLength
-            currentListLength = len(self.__sensorListDictionary.get(sensorType))
             self.__addSensorOfType(sensorType, id_, sensorClass)
 
-    def __addSensorOfType(self, sensorType: str, sensorID: int, sensorClass: callable) -> None:
+    def __addSensorOfType(self, sensorType: str, sensorID: int, sensorClass: type(SensorInterface)) -> None:
         """
         Method for adding a sensor of any type to the sensorListDictionary.
         :param sensorType: Type of the sensor, so it can be added to the dictionary at a specific value
         :param sensorID: ID that is going to be stored for the sensor-instance created.
         :param sensorClass: Dataclass that describes the structure of the sensor.
         """
-        sensorObject: type = sensorClass(sensorID, None)
+        sensorObject: object = sensorClass(sensorID)
         self.__sensorListDictionary.setdefault(sensorType, []).append(sensorObject)
 
     def subscribeToSensorData(self, callbackMethod: callable) -> None:

@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
-from dataclasses import dataclass
 
-from SensorReader.Sensors.SensorInterface import SensorInterface
+from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
-class SoilMoistureSensor(SensorInterface):
-    id: int
+class SoilMoistureSensor:
+    sensorID: int
     # Todo: Make this getter and setter thing working so each time when the value is being changed, it is also being corrected.
-    __value: int = 0
-    # value will be set by the application and has a range of 0 to 100 (percentage).
+    __value: Optional[int]
+    # The value will be set by the application and has a range of 0 to 100 (percentage).
     # value: int = 0
-    # The min and max value need to be adapted to a specific soil-moisture sensor for calibration of this sensor.
-    # minValue is typically around 200 and should be recorded with the sensor exposed to pure water, as far as possible BUT!!! without the water touching the electronic components of the sensor (sensor will be damaged probably).
+    # The min and max value needs to be adapted to a specific soil-moisture sensor for calibration of this sensor.
+    # minValue is typically around 200 and should be recorded with the sensor exposed to pure water, as far as possible BUT!!! Without the water touching the electronic components of the sensor (sensor will be damaged probably).
     # maxValue is typically around 500 and should be recorded when the sensor is in dry air. The sensor shall not be wet for calibrating the min-value and should also not be touched or touching metal etc.
     minValue: int = 250  # sensor-value when exposed to plain water.
     maxValue: int = 550  # sensor-value when exposed to air (not touching any metal nor skin etc.)

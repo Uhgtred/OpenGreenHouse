@@ -2,19 +2,18 @@
 # @author: Markus Kösters
 
 from dataclasses import dataclass
-
-from SensorReader.Sensors.SensorInterface import SensorInterface
+from typing import Optional
 
 
 @dataclass
-class HumiditySensor(SensorInterface):
+class HumiditySensor:
     """
     Data-class for storing information about one Temperature-Humidity Sensor.
     """
-    id: int
-    # Initialize the 'offSet' variable with integer type. This variable is used to calibrate the sensor-values.
+    sensorID: int
+    # Initialize the 'offSet' variable with an integer type. This variable is used to calibrate the sensor-values.
     # By default, it is set to 0.
-    __value: dict[str, float] = 0
+    __value: Optional[dict[str, float]]
     offSetTemp: float = 0
     offSetHumidity: float = 0
     type: str = 'tempHumidity'
