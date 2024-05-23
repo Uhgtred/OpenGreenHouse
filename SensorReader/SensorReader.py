@@ -20,6 +20,7 @@ class SensorReader(SensorReaderInterface):
     def readSensorData(self) -> None:
         """
         Method for reading sensor-values from a bus.
+        To receive the data that is being read, pass a callback-method to SensorReader.subscribeToSensorData
         """
         rawData: json = self.__busReaderMethod()
         dictData: dict = self.__loadJsonDataAsDict(rawData)
@@ -33,11 +34,11 @@ class SensorReader(SensorReaderInterface):
     def __notifySubscribers(subscribers: set[callable], data: dict) -> None:
         """
         Method for notifying subscribers about sensor-values.
-        :param subscribers: Subscribers to notify.
+        :param subscribers: Subscribers (callback-methods) to notify.
         :param data: Data that will be provided to subscribers.
         """
-        for subscriber in subscribers:
-            subscriber(data)
+        for subscriberMethod in subscribers:
+            subscriberMethod(data)
 
     @staticmethod
     def __iterateSensorListsAndStoreValues(sensorListDictionary: dict[str, list[callable]], dictData: dict) -> None:
