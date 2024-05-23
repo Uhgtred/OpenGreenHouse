@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c201b09-5309-4682-9649-29c32a2875b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/test_SensorReader/test_SensorReader.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BusTransactions/Encoding/BusEncodings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Architecture/Architecture.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorReader/SensorReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderConfig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderFactory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/SensorReaderInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/SensorReaderInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/HumiditySensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SensorInterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorReader/Sensors/SoilMoistureSensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" beforeDir="false" afterPath="$PROJECT_DIR$/sensorBoard/sensorBoard.ino" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +36,7 @@
       <list>
         <option value="xml" />
         <option value="Python Script" />
+        <option value="Python Unit Test" />
       </list>
     </option>
   </component>
@@ -52,16 +67,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_SensorReader.TestSensorReader.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sensor-board&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/markus/Dokumente/GitHub/OpenGreenHouse&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -72,10 +88,11 @@
       <recent name="C:\Users\marku\Documents\GitHub\OpenGreenHouse" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SensorReader" />
       <recent name="$PROJECT_DIR$/Architecture" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_asyncRunner.MyTestCase">
+  <component name="RunManager" selected="Python tests.Python tests for test_SensorReader.TestSensorReader">
     <configuration name="test_asyncRunner" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="OpenGreenHouse" />
       <option name="ENV_FILES" value="" />
@@ -99,6 +116,22 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_SensorReader.TestSensorReader" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OpenGreenHouse" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing/test_SensorReader" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_SensorReader.TestSensorReader&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_asyncRunner.MyTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="OpenGreenHouse" />
       <option name="ENV_FILES" value="" />
@@ -118,14 +151,15 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test_asyncRunner.MyTestCase" />
+        <item itemvalue="Python tests.Python tests for test_SensorReader.TestSensorReader" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
-        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -148,6 +182,23 @@
       <workItem from="1714673592827" duration="2005000" />
       <workItem from="1714677443962" duration="5494000" />
       <workItem from="1714854814659" duration="7300000" />
+      <workItem from="1714932786934" duration="5946000" />
+      <workItem from="1714977973072" duration="3291000" />
+      <workItem from="1715024197676" duration="1784000" />
+      <workItem from="1715106182868" duration="2698000" />
+      <workItem from="1715712244575" duration="5009000" />
+      <workItem from="1715717295598" duration="606000" />
+      <workItem from="1715883937432" duration="2245000" />
+      <workItem from="1715970401236" duration="205000" />
+      <workItem from="1715970647201" duration="6116000" />
+      <workItem from="1716058879612" duration="1906000" />
+      <workItem from="1716144171281" duration="2293000" />
+      <workItem from="1716150013288" duration="1436000" />
+      <workItem from="1716315526774" duration="1438000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1716362092275" duration="853000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -164,5 +215,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OpenGreenHouse$.coverage" NAME=" Coverage Results" MODIFIED="1716151111801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Testing/test_SensorReader" />
   </component>
 </project>
