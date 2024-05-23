@@ -25,6 +25,7 @@ class SensorReader(SensorReaderInterface):
         dictData: dict = self.__loadJsonDataAsDict(rawData)
         if len(self.__sensorListDictionary) > 0:
             self.__iterateSensorListsAndStoreValues(self.__sensorListDictionary, dictData)
+            self.__notifySubscribers(self.__subscribers, self.__sensorListDictionary)
         else:
             raise AttributeError('[SensorReader]: No Sensors have been initialized. Cannot read sensors!')
 
@@ -45,7 +46,6 @@ class SensorReader(SensorReaderInterface):
         :param sensorLists: Dictionary containing lists of sensors.
         :param dictData: Dictionary containing the sensor data.
         """
-        print(sensorListDictionary)
         for sensorListKey, sensorList in sensorListDictionary.items():
             for sensorIdCounter, sensorObject in enumerate(sensorList):
                 try:

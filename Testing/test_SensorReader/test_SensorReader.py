@@ -13,7 +13,7 @@ from SensorReader import SensorReader
 @dataclass
 class testSensor:
     sensorID: int
-    type = 'test'
+    type = 'soilMoisture'
     __value: Optional[any] = 0
 
     @property
@@ -27,23 +27,23 @@ class testSensor:
 
 def busReaderStub():
     # structure that will be returned by the sensor-reader.
-    return json.dumps({'tempHumidity': [{'temperature': 0, 'humidity': 0}], 'soilMoisture': [0, 0, 0]})
+    return json.dumps({'tempHumidity': [{'temperature': 9, 'humidity': 9}], 'soilMoisture': [9, 9, 9]})
 
 
 class TestSensorReader(unittest.TestCase):
     def setUp(self):
         self.testSensor = testSensor
         self.sensorReader = SensorReader.SensorReader(busReaderStub)
-        self.data = []
+        self.data = {}
 
     def receiveSensorData(self, data: any):
-        self.data.extend(data)
+        self.data = data
 
     def test_readSensorData(self):
         self.sensorReader.setSensor(3, self.testSensor.type, self.testSensor)
         self.sensorReader.subscribeToSensorData(self.receiveSensorData)
         self.sensorReader.readSensorData()
-        self.assertListEqual(self.data, [0, 1, 2])
+        self.assertDictEqual(self.data, {'soilMoisture': [testSensor(sensorID=1, _testSensor__value=9), testSensor(sensorID=2, _testSensor__value=9), testSensor(sensorID=3, _testSensor__value=9)]})
 
     def test_setSensor(self):
         self.sensorReader.setSensor(3, self.testSensor.type, self.testSensor)
