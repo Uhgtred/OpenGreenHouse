@@ -32,6 +32,9 @@ struct tempHumidityData{
 };
 
 void loop() {
+    /*
+    Main loop, running all code that shall frequently be executed.
+    */
     DynamicJsonDocument sensorValuesJson(100);
     DynamicJsonDocument *documentPointer = &sensorValuesJson;
 
