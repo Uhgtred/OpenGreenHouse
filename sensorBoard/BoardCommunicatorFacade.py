@@ -11,6 +11,11 @@ class BoardCommunicatorFacade:
     A Facade that handles most of the communication details between the sensor-board and the python-code.
     """
 
+
+    """
+    Dunno if this makes any sense at all, but the part on the arduino should stay as it is!!!!
+    !!!!
+    """
     def __init__(self):
         self.__readSensorData: type = None
 
