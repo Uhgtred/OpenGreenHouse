@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
-from SensorReader import Sensors
 from SensorReader.SensorReaderBuilder import SensorReaderBuilder
-from SensorReader.Sensors.HumiditySensor import HumiditySensor
-from sensorBoard.BoardCommunicatorFacade import BoardCommunicatorFacade
+from sensorBoard.BoardCommunication.BoardCommunicatorFacade import BoardCommunicatorFacade
 
 
 class BoardCommunicatorFacadeFactory:
