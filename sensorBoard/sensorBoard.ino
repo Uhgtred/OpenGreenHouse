@@ -22,6 +22,7 @@ void setup() {
     // Todo: receive a setup-message from the Serial-connection which contains at least the information about the frequency with which the bus shall be read!
 }
 
+
 const int tempHumiditySensorSize = 1;
 int tempHumiditySensors[tempHumiditySensorSize] = {A0};
 const int soilMoistureSize = 5;
@@ -34,6 +35,22 @@ struct tempHumidityData{
 void loop() {
     /*
     Main loop, running all code that shall frequently be executed.
+    */
+    //if some defined message has been sent, send back sensor-Readings.
+    String serialMessage;
+    // skipping the mainloop if no content on the bus!
+//     if (Serial.available() <= 0):
+//         return;
+//     serialMessage = Serial.read();
+//     if (serialMessage == '1'){
+        main();
+//     }
+    delay(5);
+}
+
+void main(){
+    /*
+    Main method for coordinating the system-behaviour!
     */
     DynamicJsonDocument sensorValuesJson(100);
     DynamicJsonDocument *documentPointer = &sensorValuesJson;
@@ -48,7 +65,6 @@ void loop() {
 
     sendJsonBySerial(documentPointer);
     Serial.println();
-    delay(60000);
 }
 
 void iterateSoilMoistureSensors(float *dataArray, int *pinArray, int arraySize){

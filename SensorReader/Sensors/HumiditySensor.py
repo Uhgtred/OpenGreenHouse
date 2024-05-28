@@ -13,7 +13,7 @@ class HumiditySensor:
     sensorID: int
     # Initialize the 'offSet' variable with an integer type. This variable is used to calibrate the sensor-values.
     # By default, it is set to 0.
-    __value: Optional[dict[str, float]]
+    __value: Optional[dict[str, float]] = None
     offSetTemp: float = 0
     offSetHumidity: float = 0
     type: str = 'tempHumidity'

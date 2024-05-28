@@ -2,6 +2,7 @@
 # @author: Markus Kösters
 
 import json
+from typing import Dict, List
 
 from SensorReader.SensorReaderInterface import SensorReaderInterface
 from SensorReader.Sensors.SensorInterface import SensorInterface
@@ -12,12 +13,13 @@ class SensorReader(SensorReaderInterface):
     Class for Reading raw sensor-values from a bus.
     """
 
-    def __init__(self, busReaderMethod: callable):
+    def __init__(self, busReaderMethod: callable, busWriterMethod: callable):
+        self.__busWriterMethod: callable = busWriterMethod
         self.__busReaderMethod: callable = busReaderMethod
         self.__sensorListDictionary: dict[str, list[object]] = {}
         self.__subscribers: set[callable] = set()
 
-    def readSensorData(self) -> None:
+    def readSensorData(self) -> dict[str, list[object]]:
         """
         Method for reading sensor-values from a bus.
         To receive the data that is being read, pass a callback-method to SensorReader.subscribeToSensorData
@@ -27,6 +29,7 @@ class SensorReader(SensorReaderInterface):
         if len(self.__sensorListDictionary) > 0:
             self.__iterateSensorListsAndStoreValues(self.__sensorListDictionary, dictData)
             self.__notifySubscribers(self.__subscribers, self.__sensorListDictionary)
+            return self.__sensorListDictionary
         else:
             raise AttributeError('[SensorReader]: No Sensors have been initialized. Cannot read sensors!')
 

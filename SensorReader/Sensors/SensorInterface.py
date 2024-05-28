@@ -11,7 +11,7 @@ class SensorInterface(Protocol):
     Dataclass for prescribing the structure of a Sensor-object.
     """
     sensorID: int
-    __value: Optional[any]
+    __value: Optional[any] = None
     type: str = 'interface'
 
     @property

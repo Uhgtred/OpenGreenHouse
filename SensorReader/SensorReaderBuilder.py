@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
+import typing
 
 from BusTransactions.BusFactory import BusFactory
 from SensorReader import SensorReader
@@ -12,14 +13,16 @@ class SensorReaderBuilder:
     Class for creating a SensorReader-instance with all wished configurations.
     """
 
-    def __init__(self, stub: bool = False) -> None:
+    def __init__(self, sensorReaderMethod: callable = 'default') -> None:
         """
         Init-Method for the SensorReaderBuilder class.
-        :param stub: Bool deciding on whether the bus is real or a stub/mock.
+        :param sensorReaderMethod: Method that will be reading from the bus of the sensor-board.
         """
-        self.sensorReader = SensorReader.SensorReader(BusFactory.produceSerialTransceiver(stub=stub).readSingleMessage)
+        if sensorReaderMethod == 'default':
+            sensorReaderMethod = BusFactory.produceSerialTransceiver().readSingleMessage
+        self.sensorReader = SensorReader.SensorReader(sensorReaderMethod)
 
-    def addHumidityTemperatureSensor(self, amount: int) -> object:
+    def addHumidityTemperatureSensor(self, amount: int) -> typing.Self:
         """
         Method for adding a Humidity-temperature-sensor to the SensorReader-instance.
         :param amount: Number of humidity-temperature-sensors that will be added.
@@ -29,7 +32,7 @@ class SensorReaderBuilder:
         self.sensorReader.setSensor(amount, sensor.type, sensor)
         return self
 
-    def addSoilMoistureSensor(self, amount: int) -> object:
+    def addSoilMoistureSensor(self, amount: int) -> typing.Self:
         """
         Method for creating multiple sensor instances.
         :param amount: Number of soilmoisture-sensors that will be added.
