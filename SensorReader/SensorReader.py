@@ -13,7 +13,8 @@ class SensorReader(SensorReaderInterface):
     Class for Reading raw sensor-values from a bus.
     """
 
-    def __init__(self, busReaderMethod: callable):
+    def __init__(self, busReaderMethod: callable, busWriterMethod: callable):
+        self.__busWriterMethod: callable = busWriterMethod
         self.__busReaderMethod: callable = busReaderMethod
         self.__sensorListDictionary: dict[str, list[object]] = {}
         self.__subscribers: set[callable] = set()

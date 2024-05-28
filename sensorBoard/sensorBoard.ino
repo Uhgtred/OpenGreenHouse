@@ -39,12 +39,12 @@ void loop() {
     //if some defined message has been sent, send back sensor-Readings.
     String serialMessage;
     // skipping the mainloop if no content on the bus!
-    if (Serial.available() <= 0):
-        return;
-    serialMessage = Serial.read();
-    if (serialMessage == '1'){
+//     if (Serial.available() <= 0):
+//         return;
+//     serialMessage = Serial.read();
+//     if (serialMessage == '1'){
         main();
-    }
+//     }
     delay(5);
 }
 
