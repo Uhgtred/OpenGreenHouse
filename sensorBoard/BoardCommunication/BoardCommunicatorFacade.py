@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
-from typing import override
 
 from BusTransactions.BusFactory import BusFactory
 from SensorReader.SensorReaderBuilder import SensorReaderBuilder
@@ -14,8 +13,8 @@ class BoardCommunicatorFacade:
     A Facade that handles most of the communication details between the sensor-board and the python-code.
     """
 
-    def __init__(self):
-        self.__busReader = BusFactory.produceSerialTransceiver()
+    def __init__(self, stub: bool = False):
+        self.__busReader = BusFactory.produceSerialTransceiver(stub=stub)
         self.sensorReader = SensorReaderBuilder(self.__busReader).addHumidityTemperatureSensor(1).addSoilMoistureSensor(3).build()
         # setting the method that will read from the bus. This also sets the getter-method
         self.readSensorData = self.__busReader.readSingleMessage()
