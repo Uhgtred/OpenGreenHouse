@@ -9,7 +9,7 @@ from typing import Optional
 class SoilMoistureSensor:
     sensorID: int
     # Todo: Make this getter and setter thing working so each time when the value is being changed, it is also being corrected.
-    __value: Optional[int]
+    __value: Optional[int] = None
     # The value will be set by the application and has a range of 0 to 100 (percentage).
     # value: int = 0
     # The min and max value needs to be adapted to a specific soil-moisture sensor for calibration of this sensor.

@@ -13,11 +13,13 @@ class SensorReaderBuilder:
     Class for creating a SensorReader-instance with all wished configurations.
     """
 
-    def __init__(self, sensorReaderMethod: callable = BusFactory.produceSerialTransceiver().readSingleMessage) -> None:
+    def __init__(self, sensorReaderMethod: callable = 'default') -> None:
         """
         Init-Method for the SensorReaderBuilder class.
         :param sensorReaderMethod: Method that will be reading from the bus of the sensor-board.
         """
+        if sensorReaderMethod == 'default':
+            sensorReaderMethod = BusFactory.produceSerialTransceiver().readSingleMessage
         self.sensorReader = SensorReader.SensorReader(sensorReaderMethod)
 
     def addHumidityTemperatureSensor(self, amount: int) -> typing.Self:

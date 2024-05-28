@@ -13,6 +13,6 @@ class BoardCommunicatorFacadeFactory:
         :return: A facade-object that handles most of the communication details between the sensor-board and the python-code.
         """
         facade = BoardCommunicatorFacade()
-        sensorReaderMethod = SensorReaderBuilder().addHumidityTemperatureSensor(1).addSoilMoisturSensor(3).build()
+        sensorReaderMethod = SensorReaderBuilder().addHumidityTemperatureSensor(1).addSoilMoistureSensor(3).build()
         facade.readSensorData = sensorReaderMethod
         return facade
