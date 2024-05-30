@@ -9,7 +9,7 @@ from SensorReader.SensorReaderInterface import SensorReaderInterface
 
 class RequestSensorData(Resource):
     """
-    Class to request sensor data.
+    Class to request sensor data through the API.
     """
     __sensorReader: SensorReaderInterface = None
 

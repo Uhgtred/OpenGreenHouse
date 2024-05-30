@@ -10,7 +10,7 @@ from API import RequestSensorData
 from API.StopServer import RestartServer
 
 
-class Main:
+class API_Setup:
     """
     Main class for setting up and starting the Flask application and API.
     """
@@ -35,7 +35,10 @@ class Main:
         for resource in self.__resources:
             self.api.add_resource(resource, self.__resources.get(resource))
 
-    def main(self):
+    def run(self) -> None:
+        """
+        Method that starts the flask application.
+        """
         self.__addRoutes()
         self.runServer()
 

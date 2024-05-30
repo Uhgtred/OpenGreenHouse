@@ -5,7 +5,7 @@ import time
 import unittest
 import requests
 
-from API.API_Setup import Main
+from API.API_Setup import API_Setup
 
 
 class test_RequestSocket(unittest.TestCase):
@@ -13,7 +13,7 @@ class test_RequestSocket(unittest.TestCase):
     port = 3001
 
     def setUp(self):
-        self.mainObject = Main(3000)
+        self.mainObject = API_Setup(3000)
 
     def test_get(self):
         self.mainObject.runServer()
@@ -23,7 +23,7 @@ class test_RequestSocket(unittest.TestCase):
         # self.assertListEqual(sockResponse, ['127.0.0.1', 2001])
         self.assertEqual(sockResponse[1], self.port)
         self.assertEqual(sockResponse[0], '127.0.0.1')
-        Main.stopServer()
+        API_Setup.stopServer()
 
 
 if __name__ == '__main__':
