@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
+
 import typing
 
-from BusTransactions.BusFactory import BusFactory
+from BusTransactions.BusInterface import BusInterface
 from SensorReader import SensorReader
 from SensorReader.Sensors.HumiditySensor import HumiditySensor
 from SensorReader.Sensors.SoilMoistureSensor import SoilMoistureSensor
@@ -13,14 +14,14 @@ class SensorReaderBuilder:
     Class for creating a SensorReader-instance with all wished configurations.
     """
 
-    def __init__(self, sensorReaderMethod: callable = 'default') -> None:
+    def __init__(self, busInstance: type(BusInterface)) -> None:
         """
         Init-Method for the SensorReaderBuilder class.
-        :param sensorReaderMethod: Method that will be reading from the bus of the sensor-board.
+        :param busInstance: Instance of the Bus class.
         """
-        if sensorReaderMethod == 'default':
-            sensorReaderMethod = BusFactory.produceSerialTransceiver().readSingleMessage
-        self.sensorReader = SensorReader.SensorReader(sensorReaderMethod)
+        sensorReaderMethod = busInstance.readSingleMessage
+        sensorWriterMethod = busInstance.writeSingleMessage
+        self.sensorReader = SensorReader.SensorReader(sensorReaderMethod, sensorWriterMethod)
 
     def addHumidityTemperatureSensor(self, amount: int) -> typing.Self:
         """

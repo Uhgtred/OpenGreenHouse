@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 class SensorReaderInterface(ABC):
 
     @abstractmethod
-    def readSensorData(self) -> None:
+    def readSensorData(self) -> dict[str, list[object]]:
         """
         Getter-Method for getting sensor data.
         :return: Dictionary containing sensor data.

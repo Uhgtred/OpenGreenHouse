@@ -2,5 +2,5 @@
 # @author: Markus Kösters
 
 from .RequestSensorData import RequestSensorData
-from .main import Main
+from .API_Setup import Main
 from .StopServer import RestartServer

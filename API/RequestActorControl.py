@@ -8,6 +8,7 @@ from flask_restful import Resource
 class RequestActorControl(Resource):
     """
     Class for pushing a request for actor control.
+    NOT YET IMPLEMENTED
     """
 
     def set(self, actor, value: int) -> Response:

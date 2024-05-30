@@ -30,6 +30,10 @@ def busReaderStub():
     return json.dumps({'tempHumidity': [{'temperature': 9, 'humidity': 9}], 'soilMoisture': [9, 9, 9]})
 
 
+def busWriterStub():
+    pass
+
+
 def busReaderStubWrongType():
     return {'tempHumidity': [{'temperature': 9, 'humidity': 9}], 'soilMoisture': [9, 9, 9]}
 
@@ -37,7 +41,7 @@ def busReaderStubWrongType():
 class TestSensorReader(unittest.TestCase):
     def setUp(self):
         self.testSensor = testSensor
-        self.sensorReader = SensorReader.SensorReader(busReaderStub)
+        self.sensorReader = SensorReader.SensorReader(busReaderStub, busWriterStub)
         self.data = {}
         self.assertionDict = {'soilMoisture': [testSensor(sensorID=1, _testSensor__value=9), testSensor(sensorID=2, _testSensor__value=9), testSensor(sensorID=3, _testSensor__value=9)]}
 
@@ -50,7 +54,7 @@ class TestSensorReader(unittest.TestCase):
         self.assertDictEqual(self.assertionDict, self.sensorReader._SensorReader__sensorListDictionary)
 
     def test_readSensorDataWrongType(self):
-        sensorReader = SensorReader.SensorReader(busReaderStubWrongType)
+        sensorReader = SensorReader.SensorReader(busReaderStubWrongType, busWriterStub)
         self.assertRaises(TypeError, sensorReader.readSensorData)
 
     def test_subscribeToSensorData(self):

@@ -5,7 +5,7 @@ import time
 import unittest
 import requests
 
-from API.main import Main
+from API.API_Setup import Main
 
 
 class test_RequestSocket(unittest.TestCase):

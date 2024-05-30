@@ -3,17 +3,15 @@
 
 import unittest
 
+from BusTransactions.BusFactory import BusFactory
 from SensorReader.SensorReaderBuilder import SensorReaderBuilder
-
-
-def stubMethod(someArg):
-    pass
 
 
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.builder = SensorReaderBuilder(stubMethod)
+        busInstanceStub = BusFactory.produceSerialTransceiver(stub=True)
+        self.builder = SensorReaderBuilder(busInstanceStub)
 
     def test_addSoilMoistureSensor(self):
         sensorReader = self.builder.addSoilMoistureSensor(3).build()

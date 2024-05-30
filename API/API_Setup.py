@@ -25,6 +25,7 @@ class Main:
     def __init__(self, port: int) -> None:
         self.__app: Flask = Flask('GreenHouseAPI')
         self.api: Api = Api(self.__app)
+        self.__ipAddress: str = '127.0.0.1'
         self.__port: int = port
 
     def __addRoutes(self) -> None:
@@ -50,9 +51,6 @@ class Main:
         """
         Method that starts the api server in a separate process and adds routes to the api instance.
         """
-
-
-
         self.__process = Process(target=self.__serverSetup, daemon=True)
         self.__process.start()
 
@@ -60,7 +58,7 @@ class Main:
         """
         Internal method to setup server-credentials.
         """
-        self.__app.run(host='127.0.0.1', port=self.__port)
+        self.__app.run(host=self.__ipAddress, port=self.__port)
 
     @classmethod
     def stopServer(cls) -> None:
@@ -70,3 +68,19 @@ class Main:
         if cls.__process is not None:
             cls.__process.kill()
             cls.__process = None
+
+    @property
+    def ipAddress(self) -> str:
+        """
+        Method that returns the ip address of the server.
+        :return: IP address of the server.
+        """
+        return self.__ipAddress
+
+    @ipAddress.setter
+    def ipAddress(self, ip: str) -> None:
+        """
+        Method that sets the ip address of the server.
+        :param ip: The ip address of the server.
+        """
+        self.__ipAddress = ip

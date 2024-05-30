@@ -3,18 +3,31 @@
 
 from Runners import ThreadRunner
 from BusTransactions.BusFactory import BusFactory
+from SensorReader.SensorReaderBuilder import SensorReaderBuilder
 
 
 class Main:
 
     def __init__(self):
-        self.__threadRunner: ThreadRunner = ThreadRunner()
-
-    def someMethod(self):
-        pass
+        self.sensorReader = None
 
     def main(self):
-        # reading raw data from the sensorboard
-        # TODO: has to go to a thread later and write to a database!
-        bus = BusFactory.produceSerialTransceiver()
-        self.__threadRunner.addTask(bus.readBusUntilStopFlag, self.someMethod)
+        """
+        Main Method handling the workflow of the program.
+        :return:
+        """
+        self.createSensorReader()
+        self.subscribeToSensorData()
+
+    def createSensorReader(self) -> None:
+        """
+        Method that creates the sensor reader instance.
+        """
+        busInstance = BusFactory.produceSerialTransceiver()
+        self.sensorReader = SensorReaderBuilder(busInstance).addSoilMoistureSensor(3).addHumidityTemperatureSensor(1).build()
+
+    def subscribeToSensorData(self) -> None:
+        """
+        Method handling the subscriptions of the sensor reader data.
+        """
+        self.sensorReader.subscribeToSensorData(dataBase)  # database not yet implemented!

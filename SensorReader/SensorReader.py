@@ -2,7 +2,6 @@
 # @author: Markus Kösters
 
 import json
-from typing import Dict, List
 
 from SensorReader.SensorReaderInterface import SensorReaderInterface
 from SensorReader.Sensors.SensorInterface import SensorInterface
@@ -12,12 +11,12 @@ class SensorReader(SensorReaderInterface):
     """
     Class for Reading raw sensor-values from a bus.
     """
+    __sensorListDictionary: dict[str, list[object]] = {}
+    __subscribers: set[callable] = set()
 
     def __init__(self, busReaderMethod: callable, busWriterMethod: callable):
         self.__busWriterMethod: callable = busWriterMethod
         self.__busReaderMethod: callable = busReaderMethod
-        self.__sensorListDictionary: dict[str, list[object]] = {}
-        self.__subscribers: set[callable] = set()
 
     def readSensorData(self) -> dict[str, list[object]]:
         """
@@ -56,7 +55,7 @@ class SensorReader(SensorReaderInterface):
                     sensorObject.value = dictData.get(sensorObject.type)[sensorIdCounter]
                 except TypeError:
                     raise TypeError(f'[SensorReader]: Sensordata has no value with type {sensorObject.type}!')
-                
+
     @staticmethod
     def __loadJsonDataAsDict(jsonData: json) -> dict:
         """
@@ -94,9 +93,10 @@ class SensorReader(SensorReaderInterface):
         sensorObject: object = sensorClass(sensorID)
         self.__sensorListDictionary.setdefault(sensorType, []).append(sensorObject)
 
-    def subscribeToSensorData(self, callbackMethod: callable) -> None:
+    @classmethod
+    def subscribeToSensorData(cls, callbackMethod: callable) -> None:
         """
         Method for adding a subscriber to the SensorReader. Each subscriber can only be added once.
         :param callbackMethod: Method that will be called if an update of sensorData is received.
         """
-        self.__subscribers.add(callbackMethod)
+        cls.__subscribers.add(callbackMethod)
