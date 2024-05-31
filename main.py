@@ -12,6 +12,7 @@ class Main:
         self.sensorReader = None
         self.API_port: int = 2001
 
+
     def main(self):
         """
         Main Method handling the workflow of the program.
