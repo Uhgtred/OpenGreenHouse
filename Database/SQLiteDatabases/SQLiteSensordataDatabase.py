@@ -11,7 +11,9 @@ class SQLiteSensordataDatabase(DatabaseInterface):
     """
     The SQLiteSensordataDatabase class is used to store the sensor data in.
     """
+
     __name = 'SensorData.db'
+    __tableName = 'SensorData'
     __tableFormat = ()
 
     def connect(self) -> Connection:
@@ -50,7 +52,7 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         :param tableName: Name of the table that will be created.
         :param tableHandle: Object to create the table upon.
         """
-        tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__name} {self.__tableFormat}')
+        tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__tableName} {self.__tableFormat}')
 
     def insertData(self, data: tuple, tableHandle: Connection.cursor) -> None:
         """
@@ -59,6 +61,7 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         :param data: Data to be inserted into the database.
         :param tableHandle: Handle that will be used to insert the data into the database.
         """
-        tableHandle.executemany(f'INSERT INTO {self.__name} VALUES(?,?,?)', data)
+        tableHandle.executemany(f'INSERT INTO {self.__tableName} VALUES(?,?,?)', data)
 
-
+    def getData(self, tableHandle: any) -> tuple:
+        pass
