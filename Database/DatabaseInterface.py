@@ -5,6 +5,9 @@ from abc import ABC, abstractmethod
 
 
 class DatabaseInterface(ABC):
+    """
+    Interface for database operations. The specific database operations will be defined in a class inheriting from this interface.
+    """
 
     @abstractmethod
     def connect(self) -> type:
@@ -28,9 +31,10 @@ class DatabaseInterface(ABC):
         """
 
     @abstractmethod
-    def createTable(self, tableName: str, connection: any) -> any:
+    def createTable(self, connection: any) -> any:
         """
         Interface method for creating a table.
+        :param connection: Connection instance of the database.
         """
 
     @abstractmethod
@@ -42,11 +46,17 @@ class DatabaseInterface(ABC):
         """
 
     @abstractmethod
-    def insertData(self, tableName: str, data: tuple, tableHandle: any) -> None:
+    def insertData(self, data: tuple, tableHandle: any) -> None:
         """
         Interface method for inserting data to the table.
-        :param tableName:
-        :param data:
-        :param tableHandle:
-        :return:
+        :param data: Data to be inserted.
+        :param tableHandle: Table handle instance.
+        """
+
+    @abstractmethod
+    def getData(self, tableHandle: any) -> tuple:
+        """
+        Interface method for getting data from the table.
+        :param tableHandle: Table handle instance.
+        :return: Data from the table.
         """

@@ -44,21 +44,21 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         cursor = connection.cursor()
         return cursor
 
-    def createTable(self, tableName: str, tableHandle: Connection.cursor) -> None:
+    def createTable(self, tableHandle: Connection.cursor) -> None:
         """
         Method for creating a table.
         :param tableName: Name of the table that will be created.
         :param tableHandle: Object to create the table upon.
         """
-        tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {tableName} {self.__tableFormat}')
+        tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__name} {self.__tableFormat}')
 
-    def insertData(self, tableName: str, data: tuple, tableHandle: Connection.cursor) -> None:
+    def insertData(self, data: tuple, tableHandle: Connection.cursor) -> None:
         """
         Method for inserting data into the database.
         :param tableName: Name of the table that the data will be inserted in.
         :param data: Data to be inserted into the database.
         :param tableHandle: Handle that will be used to insert the data into the database.
         """
-        tableHandle.executemany(f'INSERT INTO {tableName} VALUES(?,?,?)', data)
+        tableHandle.executemany(f'INSERT INTO {self.__name} VALUES(?,?,?)', data)
 
 
