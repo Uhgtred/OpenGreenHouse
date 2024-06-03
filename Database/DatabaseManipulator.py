@@ -42,8 +42,9 @@ class DatabaseManipulator:
 
     def getData(self) -> tuple:
         """
+        Todo: some information about the data that shall be extracted from the database.
         Method to retrieve data from the table.
-        :return:
+        :return: Tuple containing the data of the database.
         """
 
 
