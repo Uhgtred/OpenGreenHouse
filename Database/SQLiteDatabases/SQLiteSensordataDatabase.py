@@ -47,13 +47,16 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         cursor = connection.cursor()
         return cursor
 
-    def createTable(self, tableHandle: Connection.cursor) -> None:
+    def createTable(self, tableHandle: Connection.cursor, tableName: str = None) -> None:
         """
         Method for creating a table.
         :param tableName: Name of the table that will be created.
         :param tableHandle: Object to create the table upon.
         """
-        tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__tableName} {self.__tableFormat}')
+        if tableName:
+            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {tableName} {self.__tableFormat}')
+        else:
+            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__tableName} {self.__tableFormat}')
 
     def insertData(self, data: tuple, tableHandle: Connection.cursor) -> None:
         """

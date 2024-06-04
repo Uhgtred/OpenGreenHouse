@@ -9,7 +9,10 @@ class DatabaseManipulator:
     """
 
     def __init__(self, database: DatabaseInterface):
-        self.__dataBaseInstance: DatabaseInterface = database
+        if callable(database):
+            self.__dataBaseInstance: DatabaseInterface = database()
+        else:
+            self.__dataBaseInstance: DatabaseInterface = database
         self.__databaseConnection: object = None
         self.__tableHandle: object = None
 
@@ -25,13 +28,15 @@ class DatabaseManipulator:
         Method to disconnect from the database.
         """
         self.__dataBaseInstance.close(self.__databaseConnection)
+        self.__tableHandle: object = None
+        self.__databaseConnection: object = None
 
-    def createTable(self) -> None:
+    def createTable(self, tableName: str = None) -> None:
         """
         Method to create a new table.
-        :return:
+        :param tableName: Name of the table. None means that the table-name will be the same as the file-name.
         """
-        self.__dataBaseInstance.createTable(self.__databaseConnection)
+        self.__dataBaseInstance.createTable(self.__databaseConnection, tableName)
 
     def insertData(self, data: tuple) -> None:
         """
@@ -49,4 +54,3 @@ class DatabaseManipulator:
 
     def getDataByKeyWord(self, column: str, keyWord: str) -> list[tuple]:
         return self.__dataBaseInstance.getDataByKeyWord(column, keyWord, self.__tableHandle)
-
