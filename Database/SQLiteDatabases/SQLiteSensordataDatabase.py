@@ -12,7 +12,7 @@ class SQLiteSensordataDatabase(DatabaseInterface):
     The SQLiteSensordataDatabase class is used to store the sensor data in.
     """
 
-    __name = 'SensorData.db'
+    __name = 'DataBaseFiles/SensorData.db'
     __tableName = 'SensorData'
     # Todo: prescribe the format of the table.
     __tableFormat = ()
@@ -20,7 +20,7 @@ class SQLiteSensordataDatabase(DatabaseInterface):
     def connect(self) -> Connection:
         """
         Connects to the database.
-        :return: Connection instance object.
+        :return: Connection instance objects.
         """
         return sqlite3.connect(self.__name)
 
