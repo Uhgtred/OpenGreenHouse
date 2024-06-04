@@ -14,6 +14,7 @@ class SQLiteSensordataDatabase(DatabaseInterface):
 
     __name = 'SensorData.db'
     __tableName = 'SensorData'
+    # Todo: prescribe the format of the table.
     __tableFormat = ()
 
     def connect(self) -> Connection:
@@ -63,5 +64,13 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         """
         tableHandle.executemany(f'INSERT INTO {self.__tableName} VALUES(?,?,?)', data)
 
-    def getData(self, tableHandle: any) -> tuple:
-        pass
+    def getData(self, tableHandle: any) -> list[tuple]:
+        """
+        Method for getting data from the database.
+        :param tableHandle: Name of the table that the data will be read from.
+        :return: List of tuples containing the data from the database.
+        """
+        tableContent = []
+        for row in tableHandle.execute(f'select * from {self.__tableName}'):
+            tableContent.append(row)
+        return tableContent

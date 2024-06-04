@@ -40,15 +40,9 @@ class DatabaseManipulator:
         """
         self.__dataBaseInstance.insertData(data, self.__tableHandle)
 
-    def getData(self) -> tuple:
+    def getData(self) -> list[tuple]:
         """
-        Todo: some information about the data that shall be extracted from the database.
         Method to retrieve data from the table.
-        :return: Tuple containing the data of the database.
+        :return: List of tuples containing the data of the database.
         """
-
-
-
-
-
-
+        return self.__dataBaseInstance.getData(self.__tableHandle)

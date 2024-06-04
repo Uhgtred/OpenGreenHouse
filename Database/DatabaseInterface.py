@@ -54,7 +54,7 @@ class DatabaseInterface(ABC):
         """
 
     @abstractmethod
-    def getData(self, tableHandle: any) -> tuple:
+    def getData(self, tableHandle: any) -> list[tuple]:
         """
         Interface method for getting data from the table.
         :param tableHandle: Table handle instance.
