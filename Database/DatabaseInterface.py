@@ -60,3 +60,13 @@ class DatabaseInterface(ABC):
         :param tableHandle: Table handle instance.
         :return: Data from the table.
         """
+
+    @abstractmethod
+    def getDataByKeyWord(self, column: str, keyWord: str, tableHandle: any) -> list[tuple]:
+        """
+        Interface method for getting specific data from the table.
+        :param column: Column in which the keyWord will be searched for.
+        :param keyWord: Keyword to be searched for in the table.
+        :param tableHandle: Table handle instance.
+        :return: List of data from the table.
+        """

@@ -46,3 +46,7 @@ class DatabaseManipulator:
         :return: List of tuples containing the data of the database.
         """
         return self.__dataBaseInstance.getData(self.__tableHandle)
+
+    def getDataByKeyWord(self, column: str, keyWord: str) -> list[tuple]:
+        return self.__dataBaseInstance.getDataByKeyWord(column, keyWord, self.__tableHandle)
+

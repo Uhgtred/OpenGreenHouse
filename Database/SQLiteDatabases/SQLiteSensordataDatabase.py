@@ -74,3 +74,15 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         for row in tableHandle.execute(f'select * from {self.__tableName}'):
             tableContent.append(row)
         return tableContent
+
+    def getDataByKeyWord(self, column: str, keyWord: str, tableHandle: any) -> list[tuple]:
+        """
+        Method for getting specific data from the database.
+        :param column: Column in which the keyWord will be searched for.
+        :param keyWord: KeyWord that will be searched for.
+        :param tableHandle: Handle that will be used to search the data from the database.
+        :return: List of tuples containing the data from the database.
+        """
+        tableHandle.execute(f'select * from {self.__tableName} where {column} = {keyWord}')
+        filteredTableContent = tableHandle.fetchall()
+        return filteredTableContent
