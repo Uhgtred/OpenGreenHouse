@@ -61,11 +61,10 @@ class SQLiteSensordataDatabase(DatabaseInterface):
     def insertData(self, data: tuple, tableHandle: Connection.cursor) -> None:
         """
         Method for inserting data into the database.
-        :param tableName: Name of the table that the data will be inserted in.
         :param data: Data to be inserted into the database.
         :param tableHandle: Handle that will be used to insert the data into the database.
         """
-        tableHandle.executemany(f'INSERT INTO {self.__tableName} VALUES(?,?,?)', data)
+        tableHandle.executemany(f'INSERT INTO {self.__tableName} VALUES{data}')
 
     def getData(self, tableHandle: any) -> list[tuple]:
         """
@@ -86,6 +85,13 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         :param tableHandle: Handle that will be used to search the data from the database.
         :return: List of tuples containing the data from the database.
         """
-        tableHandle.execute(f'select * from {self.__tableName} where {column} = {keyWord}')
+        tableHandle.execute(f'select * from {self.__tableName} where {column} like "%{keyWord}%"')
         filteredTableContent = tableHandle.fetchall()
         return filteredTableContent
+
+    def saveChanges(self, connection: Connection) -> None:
+        """
+        Method for saving changes to the database.
+        :param connection: Connection instance in which the database will be saved.
+        """
+        connection.commit()

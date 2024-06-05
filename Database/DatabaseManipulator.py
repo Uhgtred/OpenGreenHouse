@@ -9,6 +9,7 @@ class DatabaseManipulator:
     """
 
     def __init__(self, database: DatabaseInterface):
+        # instancing the database-object if it is not already.
         if callable(database):
             self.__dataBaseInstance: DatabaseInterface = database()
         else:
@@ -44,6 +45,7 @@ class DatabaseManipulator:
         :param data: Data to be inserted.
         """
         self.__dataBaseInstance.insertData(data, self.__tableHandle)
+        self.__dataBaseInstance.saveChanges(self.__databaseConnection)
 
     def getData(self) -> list[tuple]:
         """
@@ -53,4 +55,10 @@ class DatabaseManipulator:
         return self.__dataBaseInstance.getData(self.__tableHandle)
 
     def getDataByKeyWord(self, column: str, keyWord: str) -> list[tuple]:
+        """
+        Method to retrieve specific data from the table filtered by column and keyWord.
+        :param column: Column in which the keyword is expected.
+        :param keyWord: Keyword to be searched for.
+        :return: List of tuples containing the data of the database.
+        """
         return self.__dataBaseInstance.getDataByKeyWord(column, keyWord, self.__tableHandle)
