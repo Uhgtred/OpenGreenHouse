@@ -71,3 +71,9 @@ class DatabaseInterface(ABC):
         :param tableHandle: Table handle instance.
         :return: List of data from the table.
         """
+
+    def saveChanges(self, connection: any) -> None:
+        """
+        Interface method for saving changes to the database.
+        :param connection: Connection instance of the database.
+        """
