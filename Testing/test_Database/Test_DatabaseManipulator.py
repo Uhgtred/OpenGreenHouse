@@ -17,7 +17,6 @@ class dummyDataBase(DatabaseInterface):
 
     def __init__(self):
         self.tableHandle = None
-        self.tableFormat = ('testcolumn', 'testcolumn2')
 
     def connect(self) -> Connection:
         return sqlite3.connect(self._name)
@@ -29,11 +28,11 @@ class dummyDataBase(DatabaseInterface):
     def name(self) -> str:
         return self._name
 
-    def createTable(self, tableHandle: Connection.cursor, tableName: str = None) -> any:
+    def createTable(self, tableHandle: Connection.cursor, columns: tuple, tableName: str = None) -> any:
         if tableName:
-            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {tableName} {self.tableFormat}')
+            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {tableName} {columns}')
         else:
-            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self._tableName} {self.tableFormat}')
+            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self._tableName} {columns}')
 
     def createTableHandle(self, connection: any) -> object:
         cursor = connection.cursor()
@@ -87,7 +86,7 @@ class test_DataBaseManipulator(unittest.TestCase):
 
     def test_createTable(self):
         self.database.connect()
-        self.database.createTable('test')
+        self.database.createTable(('testcolumn', 'testcolumn2'), 'test')
         connection = sqlite3.connect(os.path.join('DataBaseFiles', 'dummyDatabase'))
         cursor = connection.cursor()
         listOfTables = cursor.execute("""SELECT name FROM sqlite_master WHERE type='table' AND name='test'; """).fetchall()
