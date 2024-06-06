@@ -31,10 +31,11 @@ class DatabaseInterface(ABC):
         """
 
     @abstractmethod
-    def createTable(self, connection: any, tableName: str = None) -> any:
+    def createTable(self, tableHandle: any, columns: tuple, tableName: str = None) -> any:
         """
         Interface method for creating a table.
-        :param connection: Connection instance of the database.
+        :param tableHandle: Table handle instance.
+        :param columns: Columns of the table.
         :param tableName: Name of the table.
         """
 

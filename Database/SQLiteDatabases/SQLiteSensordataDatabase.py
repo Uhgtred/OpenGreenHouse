@@ -14,8 +14,6 @@ class SQLiteSensordataDatabase(DatabaseInterface):
 
     __name = 'DataBaseFiles/SensorData.db'
     __tableName = 'SensorData'
-    # Todo: prescribe the format of the table.
-    __tableFormat = ()
 
     def connect(self) -> Connection:
         """
@@ -47,16 +45,17 @@ class SQLiteSensordataDatabase(DatabaseInterface):
         cursor = connection.cursor()
         return cursor
 
-    def createTable(self, tableHandle: Connection.cursor, tableName: str = None) -> None:
+    def createTable(self, tableHandle: Connection.cursor, columns: tuple , tableName: str = None) -> None:
         """
         Method for creating a table.
+        :param columns: Columns of the table.
         :param tableName: Name of the table that will be created.
         :param tableHandle: Object to create the table upon.
         """
         if tableName:
-            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {tableName} {self.__tableFormat}')
+            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {tableName} {columns}')
         else:
-            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__tableName} {self.__tableFormat}')
+            tableHandle.execute(f'CREATE TABLE IF NOT EXISTS {self.__tableName} {columns}')
 
     def insertData(self, data: tuple, tableHandle: Connection.cursor) -> None:
         """

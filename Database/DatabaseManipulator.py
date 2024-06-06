@@ -32,12 +32,13 @@ class DatabaseManipulator:
         self.__tableHandle: object = None
         self.__databaseConnection: object = None
 
-    def createTable(self, tableName: str = None) -> None:
+    def createTable(self, columns: tuple, tableName: str = None) -> None:
         """
         Method to create a new table.
+        :param columns: Tuple with column names.
         :param tableName: Name of the table. None means that the table-name will be the same as the file-name.
         """
-        self.__dataBaseInstance.createTable(self.__databaseConnection, tableName)
+        self.__dataBaseInstance.createTable(self.__databaseConnection, columns, tableName)
 
     def insertData(self, data: tuple) -> None:
         """
