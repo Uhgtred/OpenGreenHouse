@@ -38,7 +38,7 @@ class DatabaseManipulator:
         :param columns: Tuple with column names.
         :param tableName: Name of the table. None means that the table-name will be the same as the file-name.
         """
-        self.__dataBaseInstance.createTable(self.__databaseConnection, columns, tableName)
+        self.__dataBaseInstance.createTable(self.__tableHandle, columns, tableName)
 
     def insertData(self, data: tuple) -> None:
         """
