@@ -7,6 +7,7 @@ from BusTransactions.BusInterface import BusInterface
 from SensorReader import SensorReader
 from SensorReader.Sensors.HumiditySensor import HumiditySensor
 from SensorReader.Sensors.SoilMoistureSensor import SoilMoistureSensor
+from SensorReader.Sensors.TemperatureSensor import TemperatureSensor
 
 
 class SensorReaderBuilder:
@@ -23,10 +24,20 @@ class SensorReaderBuilder:
         sensorWriterMethod = busInstance.writeSingleMessage
         self.sensorReader = SensorReader.SensorReader(sensorReaderMethod, sensorWriterMethod)
 
-    def addHumidityTemperatureSensor(self, amount: int) -> typing.Self:
+    def addTemperatureSensor(self, amount: int) -> typing.Self:
         """
         Method for adding a Humidity-temperature-sensor to the SensorReader-instance.
         :param amount: Number of humidity-temperature-sensors that will be added.
+        :return: Instance of the SensorReaderBuilder.
+        """
+        sensor = TemperatureSensor
+        self.sensorReader.setSensor(amount, sensor.type, sensor)
+        return self
+
+    def addHumiditySensor(self, amount: int) -> typing.Self:
+        """
+        Method for adding a Humidity-sensor to the SensorReader-instance.
+        :param amount: Number of humidity-sensors that will be added.
         :return: Instance of the SensorReaderBuilder.
         """
         sensor = HumiditySensor

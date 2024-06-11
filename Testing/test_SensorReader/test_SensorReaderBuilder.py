@@ -16,17 +16,32 @@ class MyTestCase(unittest.TestCase):
     def test_addSoilMoistureSensor(self):
         sensorReader = self.builder.addSoilMoistureSensor(3).build()
         self.assertIn('soilMoisture', sensorReader._SensorReader__sensorListDictionary)
-        self.assertNotIn('tempHumidity', sensorReader._SensorReader__sensorListDictionary)
+        self.assertNotIn('humidity', sensorReader._SensorReader__sensorListDictionary)
+        self.assertNotIn('temperature', sensorReader._SensorReader__sensorListDictionary)
+        sensorReader._SensorReader__sensorListDictionary.pop('soilMoisture')
 
-    def test_add_soil_moisture_sensor(self):
-        sensorReader = self.builder.addHumidityTemperatureSensor(1).build()
+    def test_addHumiditySensor(self):
+        sensorReader = self.builder.addHumiditySensor(1).build()
+        self.assertIn('humidity', sensorReader._SensorReader__sensorListDictionary)
+        self.assertNotIn('temperature', sensorReader._SensorReader__sensorListDictionary)
         self.assertNotIn('soilMoisture', sensorReader._SensorReader__sensorListDictionary)
-        self.assertIn('tempHumidity', sensorReader._SensorReader__sensorListDictionary)
+        sensorReader._SensorReader__sensorListDictionary.pop('humidity')
 
-    def test_addBothSensors(self):
-        sensorReader = self.builder.addHumidityTemperatureSensor(1).addSoilMoistureSensor(3).build()
+    def test_addTemperatureSensor(self):
+        sensorReader = self.builder.addTemperatureSensor(1).build()
+        self.assertNotIn('soilMoisture', sensorReader._SensorReader__sensorListDictionary)
+        self.assertNotIn('humidity', sensorReader._SensorReader__sensorListDictionary)
+        self.assertIn('temperature', sensorReader._SensorReader__sensorListDictionary)
+        sensorReader._SensorReader__sensorListDictionary.pop('temperature')
+
+    def test_addAllSensors(self):
+        sensorReader = self.builder.addHumiditySensor(1).addTemperatureSensor(1).addSoilMoistureSensor(3).build()
         self.assertIn('soilMoisture', sensorReader._SensorReader__sensorListDictionary)
-        self.assertIn('tempHumidity', sensorReader._SensorReader__sensorListDictionary)
+        self.assertIn('temperature', sensorReader._SensorReader__sensorListDictionary)
+        self.assertIn('humidity', sensorReader._SensorReader__sensorListDictionary)
+        sensorReader._SensorReader__sensorListDictionary.pop('temperature')
+        sensorReader._SensorReader__sensorListDictionary.pop('humidity')
+        sensorReader._SensorReader__sensorListDictionary.pop('soilMoisture')
 
 
 if __name__ == '__main__':

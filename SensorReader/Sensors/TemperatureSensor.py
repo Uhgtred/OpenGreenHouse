@@ -6,7 +6,7 @@ from typing import Optional
 
 
 @dataclass
-class HumiditySensor:
+class TemperatureSensor:
     """
     Data-class for storing information about one Temperature-Humidity Sensor.
     """
@@ -15,7 +15,7 @@ class HumiditySensor:
     # By default, it is set to 0.
     __value: Optional[float] = None
     offSet: float = 0
-    type: str = 'humidity'
+    type: str = 'temperature'
 
     @property
     def value(self) -> float:

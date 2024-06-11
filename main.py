@@ -26,7 +26,7 @@ class Main:
         Method that creates the sensor reader instance.
         """
         busInstance = BusFactory.produceSerialTransceiver()
-        self.sensorReader = SensorReaderBuilder(busInstance).addSoilMoistureSensor(3).addHumidityTemperatureSensor(1).build()
+        self.sensorReader = SensorReaderBuilder(busInstance).addSoilMoistureSensor(3).addHumiditySensor(1).addTemperatureSensor(1).build()
 
     def subscribeToSensorData(self) -> None:
         """
