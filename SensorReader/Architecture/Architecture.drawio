@@ -1,6 +1,6 @@
-<mxfile host="drawio-plugin" modified="2024-05-22T07:43:05.206Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="uK7u-GU0NS9nQ3ZbmPIc" version="22.1.22" type="embed">
+<mxfile host="drawio-plugin" modified="2024-06-11T08:34:24.145Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="m4HOHx32WHYEydg5TyW4" version="22.1.22" type="embed">
   <diagram id="23iRSUPoRavnBvh4doch" name="Page-1">
-    <mxGraphModel dx="2107" dy="927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2103" dy="1111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -43,8 +43,8 @@
         <mxCell id="6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SensorReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- sensors&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- analyzeSensorData&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
           <mxGeometry x="414" y="149" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="27" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;sensorData:json&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&quot;humidity&quot; = dict[id:int, dict[valueName:str, value:float]]]&lt;br&gt;&quot;soilMoisture&quot; = dict[id:int, value:int]&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-          <mxGeometry x="130" y="280" width="310" height="70" as="geometry" />
+        <mxCell id="27" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;sensorData:json&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&quot;humidity&quot; = dict[id:int, value:float]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&quot;temperature&quot; = dict[id:int, value:float]&lt;br&gt;&quot;soilMoisture&quot; = dict[id:int, value:float]&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="280" width="310" height="80" as="geometry" />
         </mxCell>
         <mxCell id="32" value="" style="ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;" parent="1" vertex="1">
           <mxGeometry x="700" y="440" width="10" height="10" as="geometry" />
@@ -97,10 +97,10 @@
         <mxCell id="71" value="subscription can be used to get updated about any new sensor-data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-130" y="149" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="73" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="73" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="660" y="70" width="460" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="72" value="" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="73">
+        <mxCell id="72" value="" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" parent="73" vertex="1">
           <mxGeometry width="450" height="210" as="geometry" />
         </mxCell>
         <mxCell id="23" value="" style="group" parent="73" vertex="1" connectable="0">
@@ -124,13 +124,13 @@
         <mxCell id="16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;SensorInterface&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;type: str&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;id: int&amp;nbsp;&lt;br&gt;value: any&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;container=0;" parent="23" vertex="1">
           <mxGeometry width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="74" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;endSize=6;strokeWidth=1;sketch=0;" edge="1" target="76" parent="1" source="16">
+        <mxCell id="74" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;endSize=6;strokeWidth=1;sketch=0;" parent="1" source="16" target="76" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="658" y="136" as="sourcePoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="75" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=oval;endFill=0;sketch=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=10;entryX=0.083;entryY=0.45;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.002;exitY=0.333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" target="76" parent="1" source="4">
+        <mxCell id="75" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=oval;endFill=0;sketch=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=10;entryX=0.083;entryY=0.45;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.002;exitY=0.333;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="4" target="76" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="610" y="326.5" as="sourcePoint" />
             <mxPoint x="868" y="350" as="targetPoint" />
@@ -140,7 +140,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="76" value="" style="ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;" vertex="1" parent="1">
+        <mxCell id="76" value="" style="ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;" parent="1" vertex="1">
           <mxGeometry x="633" y="125" width="10" height="10" as="geometry" />
         </mxCell>
       </root>

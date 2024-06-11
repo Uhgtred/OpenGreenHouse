@@ -23,14 +23,18 @@ void setup() {
 }
 
 
-const int tempHumiditySensorSize = 1;
-int tempHumiditySensors[tempHumiditySensorSize] = {A0};
+// const int tempHumiditySensorSize = 1;
+const int humiditySensorSize = 1;
+const int temperatureSensorSize = 1;
 const int soilMoistureSize = 5;
-int soilMoistureSensors[soilMoistureSize] = {A1, A2, A3, A4, A5};
+// int tempHumiditySensors[tempHumiditySensorSize] = {A0};
+int humiditySensors[humiditySensorSize] = {0x44};
+int temperatureSensors[temperatureSensorSize] = {0x44};
+int soilMoistureSensors[soilMoistureSensorSize] = {A1, A2, A3, A4, A5};
 
-struct tempHumidityData{
-    float temp, humidity;
-};
+// struct tempHumidityData{
+//     float temp, humidity;
+// };
 
 void loop() {
     /*
@@ -55,27 +59,50 @@ void main(){
     DynamicJsonDocument sensorValuesJson(100);
     DynamicJsonDocument *documentPointer = &sensorValuesJson;
 
-    struct tempHumidityData tempHumidityValues[tempHumiditySensorSize];
+//     struct tempHumidityData tempHumidityValues[tempHumiditySensorSize];
+    float temperatureValues[temperatureSensorSize];
+    float humidityValues[humiditySensorSize];
     float soilMoistureValues[soilMoistureSize];
 
-    iterateTempHumiditySensors(tempHumidityValues, tempHumiditySensors, tempHumiditySensorSize);
-    addJsonTempHumidityValue(documentPointer, "tempHumidity", *tempHumidityValues, tempHumiditySensorSize);
-    iterateSoilMoistureSensors(soilMoistureValues, soilMoistureSensors, soilMoistureSize);
-    addJsonArray(documentPointer, "soilMoisture", soilMoistureValues, soilMoistureSize);
+    iterateSensors(temperatureValues, temperatureSensors, temperatureSensorSize, &readSHT31Temperature);
+    iterateSensors(humidityValues, humiditySensors, humiditySensorSize, &readSHT31Humidity);
+    iterateSensors(soilMoisture, soilMoistureSensors, soilMoistureSensorSize, &readSoilMoisture);
+
+    addJsonArray(documentPointer, "temperature", *temperatureValues, temperatureSensorSize);
+    addJsonArray(documentPointer, "humidity", *humidityValues, humiditySensorSize);
+    addJsonArray(documentPointer, "soilMoisture", *soilMoistureValues, soilMoistureSensorSize);
+
+//     iterateTempHumiditySensors(tempHumidityValues, tempHumiditySensors, tempHumiditySensorSize);
+//     addJsonTempHumidityValue(documentPointer, "tempHumidity", *tempHumidityValues, tempHumiditySensorSize);
+//     iterateSoilMoistureSensors(soilMoistureValues, soilMoistureSensors, soilMoistureSize);
+//     addJsonArray(documentPointer, "soilMoisture", soilMoistureValues, soilMoistureSize);
 
     sendJsonBySerial(documentPointer);
     Serial.println();
 }
 
-void iterateSoilMoistureSensors(float *dataArray, int *pinArray, int arraySize){
+// void iterateSoilMoistureSensors(float *dataArray, int *pinArray, int arraySize){
+//     /*
+//     Method for iteratively reading sensors of same type.
+//     :param sensorPinArray: Array containing the pin-numbers of each sensor that has to be read.
+//     :param arraySize: Number of sensors that will be read.
+//     */
+//     for (int pinCounter=0; pinCounter<arraySize; pinCounter++){
+//         int data;
+//         data = readSoilMoisture(pinArray[pinCounter]);
+//         dataArray[pinCounter] = data;
+//     }
+// }
+
+void iterateSensors(float *dataArray, int *pinArray, int arraySize, (*function)(int){
     /*
     Method for iteratively reading sensors of same type.
     :param sensorPinArray: Array containing the pin-numbers of each sensor that has to be read.
     :param arraySize: Number of sensors that will be read.
     */
     for (int pinCounter=0; pinCounter<arraySize; pinCounter++){
-        int data;
-        data = readSoilMoisture(pinArray[pinCounter]);
+        float data;
+        data = function(pinArray[pinCounter]);
         dataArray[pinCounter] = data;
     }
 }
@@ -119,33 +146,47 @@ void addJsonArray(DynamicJsonDocument *jsonDoc, String name, float *sensorValues
     jsonDoc->add(innerDocument);
 }
 
-void addJsonTempHumidityValue(DynamicJsonDocument *jsonDoc, String name, struct tempHumidityData sensorStruct , int arraySize){
-    /*
-    Method for adding an array to a json-document.
-    :param jsonDoc: json-document, that the array will be stored in.
-    :param name: key of the array inside the json-document.
-    :param sensorValues: Array of sensor-values that is being stored as value to the specified key.
-    :param arraySize: Number of values that are going to be stored inside the json-document.
-    */
-    DynamicJsonDocument innerDocument(50);
-    JsonArray baseArray = innerDocument.createNestedArray(name);
-    JsonObject jsonObject = baseArray.createNestedObject();
-    jsonObject["temperature"] = sensorStruct.temp;
-    jsonObject["humidity"] = sensorStruct.humidity;
-    jsonDoc->add(innerDocument);
+// void addJsonTempHumidityValue(DynamicJsonDocument *jsonDoc, String name, struct tempHumidityData sensorStruct , int arraySize){
+//     /*
+//     Method for adding an array to a json-document.
+//     :param jsonDoc: json-document, that the array will be stored in.
+//     :param name: key of the array inside the json-document.
+//     :param sensorValues: Array of sensor-values that is being stored as value to the specified key.
+//     :param arraySize: Number of values that are going to be stored inside the json-document.
+//     */
+//     DynamicJsonDocument innerDocument(50);
+//     JsonArray baseArray = innerDocument.createNestedArray(name);
+//     JsonObject jsonObject = baseArray.createNestedObject();
+//     jsonObject["temperature"] = sensorStruct.temp;
+//     jsonObject["humidity"] = sensorStruct.humidity;
+//     jsonDoc->add(innerDocument);
+// }
+
+// tempHumidityData readSHT31(int address){
+//     /*
+//     Todo: Reading from a specified address is currently not supported. This means that reading multiple SHT31 is curently not supported neither.
+//     Method for reading a SHT31-sensor
+//     :param pin: unused for the moment. Maybe there will be the possibility to read from multiple sensors later.
+//     :return: The raw values <tempHumidityData> read from the sensor.
+//     */
+//     struct tempHumidityData sensorData;
+//     sensorData.temp = sht31.readTemperature();
+//     sensorData.humidity = sht31.readHumidity();
+//     return sensorData;
+// }
+
+float readSHT31Temperature(int address){
+    sht31.begin(address);
+    float temperature;
+    temperature = sht31.readTemperature();
+    return temperature;
 }
 
-tempHumidityData readSHT31(int address){
-    /*
-    Todo: Reading from a specified address is currently not supported. This means that reading multiple SHT31 is curently not supported neither.
-    Method for reading a SHT31-sensor
-    :param pin: unused for the moment. Maybe there will be the possibility to read from multiple sensors later.
-    :return: The raw values <tempHumidityData> read from the sensor.
-    */
-    struct tempHumidityData sensorData;
-    sensorData.temp = sht31.readTemperature();
-    sensorData.humidity = sht31.readHumidity();
-    return sensorData;
+float readSHT31Humidity(int address){
+    sht31.begin(address);
+    float humidity;
+    humidity = sht31.readHumidity();
+    return humidity;
 }
 
 // tempHumidityData readDHT22(){

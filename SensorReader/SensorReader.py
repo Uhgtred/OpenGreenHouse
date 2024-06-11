@@ -11,6 +11,7 @@ class SensorReader(SensorReaderInterface):
     """
     Class for Reading raw sensor-values from a bus.
     """
+    # dictionary containing sensor-types as key and a list of sensor-objects (dataclasses) as value
     __sensorListDictionary: dict[str, list[object]] = {}
     __subscribers: set[callable] = set()
 
@@ -22,6 +23,7 @@ class SensorReader(SensorReaderInterface):
         """
         Method for reading sensor-values from a bus.
         To receive the data that is being read, pass a callback-method to SensorReader.subscribeToSensorData
+        Todo: send a ping to the sensor-board that reader wants to receive the data
         """
         rawData: json = self.__busReaderMethod()
         dictData: dict = self.__loadJsonDataAsDict(rawData)
@@ -46,11 +48,12 @@ class SensorReader(SensorReaderInterface):
     def __iterateSensorListsAndStoreValues(sensorListDictionary: dict[str, list[callable]], dictData: dict) -> None:
         """
         Method that reads any sensor in the list of lists and adds the according value in the data-dictionary to it's value!
-        :param sensorLists: Dictionary containing lists of sensors.
+        :param sensorListDictionary: Dictionary containing lists of sensor objects.
         :param dictData: Dictionary containing the sensor data.
         """
-        for sensorListKey, sensorList in sensorListDictionary.items():
-            for sensorIdCounter, sensorObject in enumerate(sensorList):
+        for sensorType, sensorObjectList in sensorListDictionary.items():
+            # iterating over the sensor-objects in the list that is value to the sensor-type (key)
+            for sensorIdCounter, sensorObject in enumerate(sensorObjectList):
                 try:
                     sensorObject.value = dictData.get(sensorObject.type)[sensorIdCounter]
                 except TypeError:
@@ -91,7 +94,7 @@ class SensorReader(SensorReaderInterface):
         :param sensorClass: Dataclass that describes the structure of the sensor.
         """
         sensorObject: object = sensorClass(sensorID)
-        self.__sensorListDictionary.setdefault(sensorType, []).append(sensorObject)
+        self.__sensorListDictionary[sensorType].append(sensorObject)
 
     @classmethod
     def subscribeToSensorData(cls, callbackMethod: callable) -> None:

@@ -27,7 +27,7 @@ class testSensor:
 
 def busReaderStub():
     # structure that will be returned by the sensor-reader.
-    return json.dumps({'tempHumidity': [{'temperature': 9, 'humidity': 9}], 'soilMoisture': [9, 9, 9]})
+    return json.dumps({'temperature': [9], 'soilMoisture': [9, 9, 9], 'humidity': [9]})
 
 
 def busWriterStub():
