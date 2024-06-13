@@ -8,7 +8,7 @@
 
 ---
 ## Gui
-The Application shall have an Api that provides information about the things that are to be displayed.
+The Application shall have an API that provides information about the things that are to be displayed.
 The GUI shall be usable locally through a touchscreen and from a browser or an app on a mobile-device or both. 
 So the user is able to set and receive data through a mobile device on the network (maybe internet?).
 
