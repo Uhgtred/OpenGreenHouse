@@ -1,4 +1,4 @@
-package ui.theme
+package greenHouseFrontend.theme
 import androidx.compose.ui.graphics.Color
 
 val primaryLight = Color(0xFF4C662B)

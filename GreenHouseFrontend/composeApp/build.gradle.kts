@@ -9,7 +9,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -56,8 +55,6 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.decompose)
-
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -66,9 +63,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.decompose)
-            implementation(libs.decompose.jetbrains)
-            implementation(libs.kotlinx.serialization.json)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -109,11 +103,13 @@ android {
         compose = true
     }
     dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib")
-        implementation("androidx.compose.ui:ui:1.0.0")
-        implementation("androidx.compose.material3:material3:1.0.0")
         debugImplementation(compose.uiTooling)
     }
+}
+dependencies {
+//    implementation(libs.androidx.material3.desktop)
+    implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.core)
 }
 
 compose.desktop {
