@@ -24,18 +24,29 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Preview
 fun App() {
     AppTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Grow Journal!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Journal().greet() }
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+        TabNavigator(HomeScreen){
+            Scaffold(
+                bottomBar = {
+                    BottomNavigation {
+                        TabItem(HomeScreen)
+                        TabItem(SettingsMenuScreen)
+                    }
                 }
-            }
+            ) {CurrentTab()}
         }
     }
+}
+
+@Composable
+private fun RowScope.TabItem(tab: Tab){
+    val tabNavigator = LocalTabNavigator.current
+    BottomNavigationItem(
+        selected = tabNavigator.current == tab,
+        onClick = {
+            tabNavigator.current = tab
+        },
+        icon = {
+            tab.options.icon?.let{painter -> Icon(painter, contentDescription = tab.options.title)}
+        }
+    )
 }
