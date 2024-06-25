@@ -1,6 +1,3 @@
-
-//import androidx.compose.material.MaterialTheme
-
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -22,12 +19,18 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App() {
-    AppTheme {
-        TabNavigator(HomeScreen){
-            Scaffold(
-                bottomBar = {
-                    BottomNavigation {
+fun App()
+{
+    AppTheme
+    {
+        TabNavigator(HomeScreen)
+        {
+            Scaffold
+            (
+                bottomBar =
+                {
+                    BottomNavigation
+                    {
                         TabItem(HomeScreen)
                         TabItem(SettingsMenuScreen)
                     }
@@ -38,15 +41,13 @@ fun App() {
 }
 
 @Composable
-private fun RowScope.TabItem(tab: Tab){
+private fun RowScope.TabItem(tab: Tab)
+{
     val tabNavigator = LocalTabNavigator.current
-    BottomNavigationItem(
-        selected = tabNavigator.current == tab,
-        onClick = {
-            tabNavigator.current = tab
-        },
-        icon = {
-            tab.options.icon?.let{painter -> Icon(painter, contentDescription = tab.options.title)}
-        }
+    BottomNavigationItem
+    (
+            selected = tabNavigator.current == tab,
+            onClick = {tabNavigator.current = tab},
+            icon = {tab.options.icon?.let{painter -> Icon(painter, contentDescription = tab.options.title)}}
     )
 }
