@@ -1,6 +1,8 @@
+
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -11,18 +13,23 @@ import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import greenHouseFrontend.theme.AppTheme
+import navigation.home.HomeScreen
+import navigation.settings.SettingsMenuScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App()
-{
+fun App() {
     AppTheme{
         TabNavigator(tab = HomeScreen){
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 bottomBar = {
-                    NavigationBar{
+                    val colorScheme = MaterialTheme.colorScheme
+                    NavigationBar(
+                        containerColor = colorScheme.surface,
+                        contentColor = colorScheme.onSurface
+                    ){
                         TabItem(HomeScreen)
                         TabItem(SettingsMenuScreen)
                     }
