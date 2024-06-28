@@ -2,7 +2,10 @@ package navigation.home
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,6 +24,7 @@ object HomeScreen: Tab {
             contentAlignment = Alignment.Center
         ){
             Text("navigation.Home.HomeScreen")
+            MyIconButton()
         }
     }
 
@@ -33,4 +37,18 @@ object HomeScreen: Tab {
 
             return TabOptions(index, title, icon)
         }
+
 }
+
+@Composable
+fun MyIconButton() {
+    IconButton(onClick = {
+        // Action to perform when the icon button is clicked
+    }) {
+        Icon(
+            imageVector = Icons.Filled.Favorite,
+            contentDescription = "Favorite"
+        )
+    }
+}
+
