@@ -24,7 +24,12 @@ object HomeScreen: Tab {
             contentAlignment = Alignment.Center
         ){
             Text("navigation.Home.HomeScreen")
-            MyIconButton()
+        }
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.TopStart
+        ){
+            AirSettingsIconButton()
         }
     }
 
@@ -41,7 +46,7 @@ object HomeScreen: Tab {
 }
 
 @Composable
-fun MyIconButton() {
+fun AirSettingsIconButton() {
     IconButton(onClick = {
         // Action to perform when the icon button is clicked
     }) {
