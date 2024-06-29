@@ -17,6 +17,7 @@ material3Desktop = "1.2.1"
 material3Android = "1.2.1"
 core = "1.13.1"
 firebaseCrashlyticsBuildtools = "3.0.2"
+voyagerVersion = "1.0.0-rc10"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -33,6 +34,9 @@ androidx-material3-desktop = { group = "androidx.compose.material3", name = "mat
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
 firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerVersion" }
+voyager-tab-navigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyagerVersion" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyagerVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

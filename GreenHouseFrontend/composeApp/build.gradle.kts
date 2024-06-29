@@ -57,17 +57,16 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
+            implementation(compose.materialIconsExtended)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            // Voyager
-            val voyagerVersion = "1.0.0-rc10"
-            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
-            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.tab.navigator)
+            implementation(libs.voyager.transitions)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -112,7 +111,6 @@ android {
     }
 }
 dependencies {
-//    implementation(libs.androidx.material3.desktop)
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.core)
     implementation(libs.firebase.crashlytics.buildtools)
