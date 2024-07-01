@@ -13,15 +13,15 @@ import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import greenHouseFrontend.theme.AppTheme
-import navigation.home.HomeScreen
-import navigation.settings.SettingsMenuScreen
+import navigation.home.HomeTab
+import navigation.settings.SettingsMenuTab
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
 fun App() {
     AppTheme{
-        TabNavigator(tab = HomeScreen){
+        TabNavigator(tab = HomeTab){
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 bottomBar = {
@@ -30,8 +30,8 @@ fun App() {
                         containerColor = colorScheme.surface,
                         contentColor = colorScheme.onSurface
                     ){
-                        TabItem(HomeScreen)
-                        TabItem(SettingsMenuScreen)
+                        TabItem(HomeTab)
+                        TabItem(SettingsMenuTab)
                     }
                 }
             ) {CurrentTab()}
