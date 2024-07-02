@@ -67,6 +67,7 @@ kotlin {
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.tab.navigator)
             implementation(libs.voyager.transitions)
+            implementation(libs.androidx.datastore.preferences)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -115,6 +116,11 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.firebase.crashlytics.buildtools)
     implementation(libs.androidx.material)
+    implementation(libs.androidx.compiler)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.androidx.datastore.preferences.core.jvm)
+    implementation(libs.androidx.databinding.compiler)
+    implementation(libs.androidx.room.compiler)
 }
 
 compose.desktop {
