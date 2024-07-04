@@ -55,6 +55,8 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.multiplatform.settings)
+            implementation(libs.multiplatform.settings.android)
         }
         commonMain.dependencies {
             implementation(compose.materialIconsExtended)
@@ -68,6 +70,7 @@ kotlin {
             implementation(libs.voyager.tab.navigator)
             implementation(libs.voyager.transitions)
             implementation(libs.androidx.datastore.preferences)
+            implementation(libs.multiplatform.settings)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

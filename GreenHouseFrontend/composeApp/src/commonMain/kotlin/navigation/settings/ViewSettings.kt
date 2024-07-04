@@ -34,22 +34,23 @@ class ViewSettingsScreen: Screen {
 
 @Composable
 fun DarkModeToggleSwitch() {
-    val context = LocalContext.current
-    val settingsDataStore = remember { SettingsDataStore(context) }
-    var isDarkMode by remember { mutableStateOf(false) }
+    settingsRepository: SettingsRepository,
+    ) {
+        val context = LocalContext.current
+        var isDarkMode by remember { mutableStateOf(false) }
 
-    LaunchedEffect(key1 = Unit) {
-        settingsDataStore.isDarkMode.collect { darkMode ->
-            isDarkMode = darkMode
+        LaunchedEffect(key1 = Unit) {
+            settingsRepository.observeDarkMode().collect { darkMode ->
+                isDarkMode = darkMode
+            }
         }
-    }
 
-    Switch(
-        checked = isDarkMode,
-        onCheckedChange = {
-            isDarkMode = it
-            // Trigger the actual theme change (see step 3)
-        }
-    )
-    Text(text = if (isDarkMode) "Dark Mode" else "Light Mode")
+        Switch(
+            checked = isDarkMode,
+            onCheckedChange = { newMode ->
+                isDarkMode = newMode
+                settingsRepository.toggleDarkMode(newMode)
+            }
+        )
+        Text(text = if (isDarkMode) "Dark Mode" else "Light Mode")
 }
