@@ -32,10 +32,10 @@ class DatabaseController:
         :param databaseName: Name of the database that will be closed.
         """
         for databaseDictionary in self.__databaseInstances:
-            for databaseName, databaseManipulatorInstance in databaseDictionary.items():
-                if databaseName == databaseName:
-                    databaseManipulatorInstance.disconnect()
-                    self.__databaseInstances.remove({databaseName: databaseManipulatorInstance})
+            if databaseName in databaseDictionary:
+                databaseDictionary[databaseName].disconnect()
+                self.__databaseInstances.remove(databaseDictionary)
+                break
 
     def __closeAllDatabases(self) -> None:
         """
