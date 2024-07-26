@@ -4,6 +4,7 @@
 import unittest
 
 from Database.DatabaseController import DatabaseController
+from Testing.test_Database.StubsAndMocks.dummyDatabase import dummyDataBase
 
 
 class MyTestCase(unittest.TestCase):
@@ -17,7 +18,7 @@ class MyTestCase(unittest.TestCase):
         Todo: implement
         """
         databaseName = 'dummyDatabase'
-        self.databaseController.openDatabase(databaseName,'Testing/test_Database/DataBaseFiles/dummyDatabase')
+        self.databaseController.openDatabase(databaseName, dummyDataBase())
 
     def test_closeDatabase(self) -> None:
         """

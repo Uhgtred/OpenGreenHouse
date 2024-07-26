@@ -8,33 +8,32 @@ from Database.DatabaseManipulator import DatabaseManipulator
 
 class DatabaseController:
 
-    __databaseInstances: set[dict[str, DatabaseManipulator]]
+    __databaseInstances: set[DatabaseManipulator]
 
     def __init__(self):
         # Closing all databases when the program is being closed!
         atexit.register(self.__closeAllDatabases)
 
-    def openDatabase(self, databaseName: str, database: DatabaseInterface) -> None:
+    def openDatabase(self, database: DatabaseInterface) -> None:
         """
         Method for opening the database and keep an instance as long as the instance is not actively being closed.
         Only opens a connection to a database, when there is not yet an existing instance with the same name.
-        :param databaseName: Name of the database that will be opened.
         :param database: Database instance that will be opened.
         """
-        if not any(databaseName in dict(item) for item in self.__databaseInstances):
+        if not any(database.name in item for item in self.__databaseInstances):
             databaseManipulator = DatabaseManipulator(database)
             databaseManipulator.connect()
-            self.__databaseInstances.add({databaseName: databaseManipulator})
+            self.__databaseInstances.add(databaseManipulator)
 
-    def closeDatabase(self, databaseName: str) -> None:
+    def closeDatabase(self, database: DatabaseInterface) -> None:
         """
         Method for closing a specific database instance.
-        :param databaseName: Name of the database that will be closed.
+        :param database: Name of the database that will be closed.
         """
-        for databaseDictionary in self.__databaseInstances:
-            if databaseName in databaseDictionary:
-                databaseDictionary[databaseName].disconnect()
-                self.__databaseInstances.remove(databaseDictionary)
+        for databaseInstance in self.__databaseInstances:
+            if database.name == databaseInstance.databaseName:
+                databaseInstance.disconnect()
+                self.__databaseInstances.remove(databaseInstance)
                 break
 
     def __closeAllDatabases(self) -> None:

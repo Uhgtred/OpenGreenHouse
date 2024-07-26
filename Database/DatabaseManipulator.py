@@ -63,3 +63,11 @@ class DatabaseManipulator:
         :return: List of tuples containing the data of the database.
         """
         return self.__dataBaseInstance.getDataByKeyWord(column, keyWord, self.__tableHandle)
+
+    @property
+    def databaseName(self) -> str:
+        """
+        Getter-method for the name of the database.
+        :return: Name of the database.
+        """
+        return self.__dataBaseInstance.name
