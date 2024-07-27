@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
+import os
+import sqlite3
+from sqlite3 import Connection
 
 from Database.DatabaseInterface import DatabaseInterface
 

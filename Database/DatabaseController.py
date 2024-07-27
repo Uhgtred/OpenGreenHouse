@@ -8,7 +8,7 @@ from Database.DatabaseManipulator import DatabaseManipulator
 
 class DatabaseController:
 
-    __databaseInstances: set[DatabaseManipulator]
+    __databaseInstances: set[DatabaseManipulator] = set()
 
     def __init__(self):
         # Closing all databases when the program is being closed!
@@ -17,7 +17,7 @@ class DatabaseController:
     def openDatabase(self, database: DatabaseInterface) -> None:
         """
         Method for opening the database and keep an instance as long as the instance is not actively being closed.
-        Only opens a connection to a database, when there is not yet an existing instance with the same name.
+        Only opens a connection to a database when there is not an existing instance with the same name yet.
         :param database: Database instance that will be opened.
         """
         if not any(database.name in item for item in self.__databaseInstances):
@@ -40,5 +40,5 @@ class DatabaseController:
         """
         Method for closing all database instances.
         """
-        for databaseDictionary in self.__databaseInstances:
-            list(databaseDictionary.values())[0].disconnect()
+        for databaseInstance in self.__databaseInstances:
+            databaseInstance.disconnect()

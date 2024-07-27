@@ -4,6 +4,7 @@
 import unittest
 
 from Database.DatabaseController import DatabaseController
+from Database.DatabaseManipulator import DatabaseManipulator
 from Testing.test_Database.StubsAndMocks.dummyDatabase import dummyDataBase
 
 
@@ -17,8 +18,9 @@ class MyTestCase(unittest.TestCase):
         Method for opening the database and keep an instance as long as the instance is not actively being closed.
         Todo: implement
         """
-        databaseName = 'dummyDatabase'
-        self.databaseController.openDatabase(databaseName, dummyDataBase())
+        self.databaseController.openDatabase(dummyDataBase())
+        print(list(self.databaseController._DatabaseController__databaseInstances)[0])
+        self.assertIn(DatabaseManipulator, list(self.databaseController._DatabaseController__databaseInstances))
 
     def test_closeDatabase(self) -> None:
         """

@@ -4,9 +4,7 @@
 import os.path
 import sqlite3
 import unittest
-from sqlite3 import Connection
 
-from Database.DatabaseInterface import DatabaseInterface
 from Database.DatabaseManipulator import DatabaseManipulator
 from Testing.test_Database.StubsAndMocks.dummyDatabase import dummyDataBase
 
