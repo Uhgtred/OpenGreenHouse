@@ -2,13 +2,13 @@
 # @author: Markus Kösters
 
 import atexit
+from typing import List
 
 from Database.DatabaseInterface import DatabaseInterface
 from Database.DatabaseManipulator import DatabaseManipulator
 
 
 class DatabaseController:
-
     __databaseInstances: set[DatabaseManipulator] = set()
 
     def __init__(self):
@@ -39,12 +39,25 @@ class DatabaseController:
 
     def writeToDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator), data: tuple) -> None:
         """
-        Method for w
-        :param database:
-        :param data: Data that will be written to the database
+        Method for writing to a selected database.
+        :param database: DatabaseManipulator-instance containing a database that will be opened.
+        :param data: Data that will be written to the database (tuple where the number of columns equals the number of items in the tuple).
         """
         database: DatabaseManipulator = self.__findDatabase(database)
         database.insertData(data)
+
+    def readFromDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator)) -> list[tuple]:
+        """
+        Method for reading from a database.
+        :param database: Database that will be read from.
+        :return: Data from the database (list of tuples).
+        """
+        database = self.__findDatabase(database)
+        return database.getData()
+
+    def readFromDatabaseByKeyword(self, database: DatabaseManipulator | type(DatabaseManipulator), column: str, keyword: str) -> list[tuple]:
+        database = self.__findDatabase(database)
+        return database.getDataByKeyWord(column, keyword)
 
     def __findDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator)) -> DatabaseManipulator:
         """
