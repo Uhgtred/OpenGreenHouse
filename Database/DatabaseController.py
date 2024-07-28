@@ -15,20 +15,17 @@ class DatabaseController:
         # Closing all databases when the program is being closed!
         atexit.register(self.__closeAllDatabases)
 
-    def openDatabase(self, database: DatabaseInterface | type(DatabaseInterface)) -> DatabaseManipulator:
+    def openDatabase(self, database: DatabaseInterface | type(DatabaseInterface)) -> None:
         """
         Method for opening the database and keep an instance as long as the instance is not actively being closed.
         Only opens a connection to a database when there is not an existing instance with the same name yet.
         :param database: Database instance that will be opened.
-        :return: DatabaseManipulator instance containing an instance of the opened database.
         """
         database: DatabaseInterface = self.__checkCallable(database)
         if not any(database.name == item.databaseName for item in self.__databaseInstances):
             databaseManipulator = DatabaseManipulator(database)
             databaseManipulator.connect()
             self.__databaseInstances.add(databaseManipulator)
-            return databaseManipulator
-        return self.__findDatabase(database)
 
     def closeDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator)) -> None:
         """
@@ -40,13 +37,14 @@ class DatabaseController:
         database.disconnect()
         self.__databaseInstances.remove(database)
 
-    # def writeToDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator)) -> None:
-    #     """
-    #     Method for w
-    #     :param database:
-    #     :return:
-    #     """
-    #     pass
+    def writeToDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator), data: tuple) -> None:
+        """
+        Method for w
+        :param database:
+        :param data: Data that will be written to the database
+        """
+        database: DatabaseManipulator = self.__findDatabase(database)
+        database.insertData(data)
 
     def __findDatabase(self, database: DatabaseManipulator | type(DatabaseManipulator)) -> DatabaseManipulator:
         """

@@ -27,8 +27,8 @@ class Main:
         Method for creating the needed databases.
         TODO: Create the dataclasses for the mentioned databases.
         """
-        self.sensorSettingsDatabase = DatabaseController.openDatabase(SensorSettingsDatabase)
-        self.sensorDataDatabase = DatabaseController.openDatabase(SensorDataDatabase)
+        DatabaseController.openDatabase(SensorSettingsDatabase)
+        DatabaseController.openDatabase(SensorDataDatabase)
 
 
     def createSensorReader(self) -> None:
