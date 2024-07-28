@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # @author: Markus Kösters
 from API import API_Setup
+from Database.DatabaseController import DatabaseController
 from Runners import ThreadRunner
 from BusTransactions.BusFactory import BusFactory
 from SensorReader.SensorReaderBuilder import SensorReaderBuilder
@@ -20,6 +21,15 @@ class Main:
         """
         self.createSensorReader()
         self.subscribeToSensorData()
+
+    def createDatabaseConnections(self):
+        """
+        Method for creating the needed databases.
+        TODO: Create the dataclasses for the mentioned databases.
+        """
+        self.sensorSettingsDatabase = DatabaseController.openDatabase(SensorSettingsDatabase)
+        self.sensorDataDatabase = DatabaseController.openDatabase(SensorDataDatabase)
+
 
     def createSensorReader(self) -> None:
         """
