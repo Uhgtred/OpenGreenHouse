@@ -15,22 +15,19 @@ class MyTestCase(unittest.TestCase):
 
     def test_openDatabase(self) -> None:
         """
-        Method for opening the database and keep an instance as long as the instance is not actively being closed.
-        Todo: implement
+        Method for testing the Opening of the database by the database-controller.
         """
-        self.databaseController.openDatabase(dummyDataBase())
-        print(list(self.databaseController._DatabaseController__databaseInstances)[0])
-        self.assertIn(DatabaseManipulator, list(self.databaseController._DatabaseController__databaseInstances))
+        self.databaseController.openDatabase(dummyDataBase)
+        assert isinstance(list(self.databaseController._DatabaseController__databaseInstances)[0], DatabaseManipulator)
+        self.databaseController.closeDatabase(dummyDataBase)
 
     def test_closeDatabase(self) -> None:
         """
-        Method for closing a specific database instance.
-        Todo: implement
+        Method for testing the Closing of the database by the database-controller.
         """
-        pass
-
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+        self.databaseController.openDatabase(dummyDataBase)
+        self.databaseController.closeDatabase(dummyDataBase)
+        self.assertListEqual([], list(self.databaseController._DatabaseController__databaseInstances))
 
 
 if __name__ == '__main__':
