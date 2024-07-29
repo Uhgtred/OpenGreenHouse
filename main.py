@@ -2,6 +2,8 @@
 # @author: Markus Kösters
 from API import API_Setup
 from Database.DatabaseController import DatabaseController
+from Database.DatabaseManipulator import DatabaseManipulator
+from Database.SQLiteDatabases.SQLiteSensordataDatabase import SQLiteSensordataDatabase
 from Runners import ThreadRunner
 from BusTransactions.BusFactory import BusFactory
 from SensorReader.SensorReaderBuilder import SensorReaderBuilder
@@ -12,7 +14,8 @@ class Main:
     def __init__(self):
         self.sensorReader = None
         self.API_port: int = 2001
-
+        self.databaseController: DatabaseController = DatabaseController()
+        self.sensorDataDatabaseManipulator = DatabaseManipulator(SQLiteSensordataDatabase)
 
     def main(self):
         """
@@ -27,9 +30,8 @@ class Main:
         Method for creating the needed databases.
         TODO: Create the dataclasses for the mentioned databases.
         """
-        DatabaseController.openDatabase(SensorSettingsDatabase)
-        DatabaseController.openDatabase(SensorDataDatabase)
-
+        self.databaseController.openDatabase(SensorSettingsDatabase)
+        self.databaseController.openDatabase(SQLiteSensordataDatabase)
 
     def createSensorReader(self) -> None:
         """
@@ -42,7 +44,7 @@ class Main:
         """
         Method handling the subscriptions of the sensor reader data.
         """
-        self.sensorReader.subscribeToSensorData(dataBase)  # database not yet implemented!
+        self.sensorReader.subscribeToSensorData(self.sensorDataDatabaseManipulator.insertData)
 
     def setupAPI(self) -> None:
         """

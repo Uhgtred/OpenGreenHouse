@@ -8,7 +8,7 @@ class DatabaseManipulator:
     Class for setting up a Database instance and managing access to the database.
     """
 
-    def __init__(self, database: DatabaseInterface):
+    def __init__(self, database: DatabaseInterface | type(DatabaseInterface)):
         # instancing the database-object if it is not already.
         if callable(database):
             self.__dataBaseInstance: DatabaseInterface = database()
