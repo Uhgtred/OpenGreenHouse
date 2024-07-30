@@ -1,16 +1,15 @@
 [versions]
-agp = "8.5.0"
+agp = "8.5.1"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
-androidx-activityCompose = "1.9.0"
-androidx-appcompat = "1.6.1"
+androidx-activityCompose = "1.9.1"
+androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.13.1"
-androidx-espresso-core = "3.5.1"
+androidx-espresso-core = "3.6.1"
 androidx-material = "1.12.0"
-androidx-test-junit = "1.1.5"
-compose-plugin = "1.6.10"
+androidx-test-junit = "1.2.1"
 datastorePreferences = "1.1.1"
 junit = "4.13.2"
 kotlin = "2.0.0"
@@ -19,12 +18,15 @@ material3Android = "1.2.1"
 core = "1.13.1"
 firebaseCrashlyticsBuildtools = "3.0.2"
 multiplatformSettings = "0.8"
-voyagerVersion = "1.0.0-rc10"
+voyagerVersion = "1.0.0"
 compiler = "3.2.0-alpha11"
 datastoreCoreAndroid = "1.1.1"
 datastorePreferencesCoreJvm = "1.1.1"
-databindingCompiler = "8.5.0"
+databindingCompiler = "8.5.1"
 roomCompiler = "2.6.1"
+supportAnnotations = "28.0.0"
+composeMultiplatform = "1.6.10"
+gamesActivity = "3.0.4"
 
 [libraries]
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
@@ -52,10 +54,13 @@ androidx-datastore-core-android = { group = "androidx.datastore", name = "datast
 androidx-datastore-preferences-core-jvm = { group = "androidx.datastore", name = "datastore-preferences-core-jvm", version.ref = "datastorePreferencesCoreJvm" }
 androidx-databinding-compiler = { group = "androidx.databinding", name = "databinding-compiler", version.ref = "databindingCompiler" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+support-annotations = { group = "com.android.support", name = "support-annotations", version.ref = "supportAnnotations" }
+compose-material = { module = "org.jetbrains.compose.material:material", version.ref = "composeMultiplatform"}
+androidx-games-activity = { group = "androidx.games", name = "games-activity", version.ref = "gamesActivity" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform"}

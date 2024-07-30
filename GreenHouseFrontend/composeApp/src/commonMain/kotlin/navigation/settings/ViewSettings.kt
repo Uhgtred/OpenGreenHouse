@@ -1,6 +1,6 @@
 package navigation.settings
 
-import Data.SettingsDataStore
+import Data.SharedSettings
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,7 +34,7 @@ class ViewSettingsScreen: Screen {
 
 @Composable
 fun DarkModeToggleSwitch() {
-    settingsRepository: SettingsRepository,
+    SharedSettings: SharedSettings,
     ) {
         val context = LocalContext.current
         var isDarkMode by remember { mutableStateOf(false) }

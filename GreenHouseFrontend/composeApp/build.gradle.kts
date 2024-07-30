@@ -7,8 +7,8 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.composeMultiplatform)
 }
 
 kotlin {
@@ -124,6 +124,8 @@ dependencies {
     implementation(libs.androidx.datastore.preferences.core.jvm)
     implementation(libs.androidx.databinding.compiler)
     implementation(libs.androidx.room.compiler)
+    implementation(libs.support.annotations)
+    implementation(libs.androidx.games.activity)
 }
 
 compose.desktop {
