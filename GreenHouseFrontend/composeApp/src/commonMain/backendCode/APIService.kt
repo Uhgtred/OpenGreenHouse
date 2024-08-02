@@ -24,7 +24,7 @@ data class DataItem(val id: Int, val name: String)
 // Android Code (androidMain)
 
 import android.app.Application
-        import io.ktor.client.engine.android.*
+import io.ktor.client.engine.android.*
 
 class MyApplication : Application() {
     val apiService: ApiService by lazy {
@@ -43,41 +43,41 @@ class MyApplication : Application() {
 
 import io.ktor.client.engine.darwin.*
 
-        object IosApiService {
-            val apiService: ApiService by lazy {
-                ApiServiceImpl(
-                    HttpClient(Darwin) {
-                        install(ContentNegotiation) {
-                            json(Json {
-                                ignoreUnknownKeys = true
-                            })
-                        }
-                    }
-                )
+object IosApiService {
+    val apiService: ApiService by lazy {
+        ApiServiceImpl(
+            HttpClient(Darwin) {
+                install(ContentNegotiation) {
+                    json(Json {
+                        ignoreUnknownKeys = true
+                    })
+                }
             }
-        }
+        )
+    }
+}
 
 // Usage in a Composable (commonMain)
 
 import androidx.compose.runtime.*
-        import kotlinx.coroutines.launch
+import kotlinx.coroutines.launch
 
-        @Composable
-        fun DataList() {
-            var data by remember { mutableStateOf<List<DataItem>>(emptyList()) }
-            val coroutineScope = rememberCoroutineScope()
+@Composable
+fun DataList() {
+    var data by remember { mutableStateOf<List<DataItem>>(emptyList()) }
+    val coroutineScope = rememberCoroutineScope()
 
-            // Platform-specific API service access
-            val apiService = getPlatformApiService()
+    // Platform-specific API service access
+    val apiService = getPlatformApiService()
 
-            LaunchedEffect(Unit) {
-                coroutineScope.launch {
-                    data = apiService.fetchData()
-                }
-            }
-
-            // Display the data
-            // ...
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            data = apiService.fetchData()
         }
+    }
+
+    // Display the data
+    // ...
+}
 
 expect fun getPlatformApiService(): ApiService
