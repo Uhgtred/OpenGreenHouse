@@ -7,6 +7,7 @@ import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
+//TODO: Make this code work and communicate with the backend (API)
 interface ApiService {
     suspend fun fetchData(): List<DataItem>
 }

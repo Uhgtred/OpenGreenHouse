@@ -25,7 +25,9 @@ class AirQualityMenuScreen: Screen {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
+            val relativeHumidity = 0.0
             Text("Air-Quality")
+            Text("Relative Humidity: ${relativeHumidity}%")
         }
     }
 }
