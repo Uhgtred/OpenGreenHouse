@@ -35,12 +35,10 @@ class AirQualityMenuScreen: Screen {
 @Composable
 fun AirSettingsIconButton() {
     val navigator = LocalNavigator.currentOrThrow
-    IconButton(onClick = {
-        navigator.push(AirQualityMenuScreen())
-    }) {
-        Icon(
-            imageVector = Icons.Default.Air,
-            contentDescription = "Air-Quality"
-        )
-    }
+    //IconButton(onClick = {
+    ExtendedFloatingActionButton(
+            onClick = {navigator.push(AirQualityMenuScreen())},
+            icon = {Icon(imageVector = Icons.Default.Air, contentDescription = "Air-Quality")},
+            text = {Text(text = "TestText")},
+    )
 }
