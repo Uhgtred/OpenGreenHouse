@@ -18,13 +18,15 @@ class SensorReader(SensorReaderInterface):
     def __init__(self, busReaderMethod: callable, busWriterMethod: callable):
         self.__busWriterMethod: callable = busWriterMethod
         self.__busReaderMethod: callable = busReaderMethod
+        # TODO: this json-document should not be here. It should probably be part of the protocol
+        self.__jsonDocument: json = json.dumps({"TransmitSensorData": 1})
 
     def readSensorData(self) -> dict[str, list[object]]:
         """
         Method for reading sensor-values from a bus.
         To receive the data that is being read, pass a callback-method to SensorReader.subscribeToSensorData
-        Todo: send a ping to the sensor-board that reader wants to receive the data
         """
+        self.__busWriterMethod(self.__jsonDocument)
         rawData: json = self.__busReaderMethod()
         dictData: dict = self.__loadJsonDataAsDict(rawData)
         if len(self.__sensorListDictionary) > 0:
