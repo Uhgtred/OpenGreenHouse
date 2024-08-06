@@ -6,6 +6,13 @@
 
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
+const int humiditySensorSize = 1;
+const int temperatureSensorSize = 1;
+const int soilMoistureSize = 5;
+int humiditySensors[humiditySensorSize] = {0x44};
+int temperatureSensors[temperatureSensorSize] = {0x44};
+int soilMoistureSensors[soilMoistureSensorSize] = {A1, A2, A3, A4, A5};
+
 void setup() {
     /*
     Method for setting up any connections! 
@@ -16,15 +23,6 @@ void setup() {
       Serial.println("Couldn't find SHT31");
     }
 }
-
-
-const int humiditySensorSize = 1;
-const int temperatureSensorSize = 1;
-const int soilMoistureSize = 5;
-int humiditySensors[humiditySensorSize] = {0x44};
-int temperatureSensors[temperatureSensorSize] = {0x44};
-int soilMoistureSensors[soilMoistureSensorSize] = {A1, A2, A3, A4, A5};
-
 
 void loop() {
     /*
@@ -59,16 +57,17 @@ void main(){
     float temperatureValues[temperatureSensorSize];
     float humidityValues[humiditySensorSize];
     float soilMoistureValues[soilMoistureSize];
-
+    // Iterating over all defined sensors and reading their values.
     iterateSensors(temperatureValues, temperatureSensors, temperatureSensorSize, &readSHT31Temperature);
     iterateSensors(humidityValues, humiditySensors, humiditySensorSize, &readSHT31Humidity);
     iterateSensors(soilMoisture, soilMoistureSensors, soilMoistureSensorSize, &readSoilMoisture);
-
+    // Storing sensor-values into the Json-document.
     addJsonArray(documentPointer, "temperature", *temperatureValues, temperatureSensorSize);
     addJsonArray(documentPointer, "humidity", *humidityValues, humiditySensorSize);
     addJsonArray(documentPointer, "soilMoisture", *soilMoistureValues, soilMoistureSensorSize);
-
+    // Sending the Json-document via serial-bus.
     sendJsonBySerial(documentPointer);
+    // This line is just a separator.
     Serial.println();
 }
 
