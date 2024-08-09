@@ -3,8 +3,8 @@ package navigation.air
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Air
 import androidx.compose.material3.Icon
@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import kotlin.math.roundToInt
 
 
 class AirQualityMenuScreen: Screen {
@@ -41,18 +42,26 @@ class AirQualityMenuScreen: Screen {
 fun AirSettingsIconButton() {
     val navigator = LocalNavigator.currentOrThrow
     val relativeHumidity = 0.0
-    IconButton(onClick = {
-        navigator.push(AirQualityMenuScreen())
-    }) {
-        Column {
+    val relativeHumidityRounded = (relativeHumidity *10).roundToInt() / 10.0
+
+    IconButton(
+            onClick = {navigator.push(AirQualityMenuScreen())},
+            modifier = Modifier
+                .size(width = 64.dp, height = 72.dp)
+                .padding(4.dp)
+        ) {
+        Column (
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ){
             Icon(
                 imageVector = Icons.Default.Air,
                 contentDescription = "Air-Quality",
-//                modifier = Modifier.size(32.dp) // Setting Icon-size to 32dp
+                modifier = Modifier.size(32.dp) // Make icon bigger
             )
             Text(
-                text = "%.1f%%".format(relativeHumidity),   // Format to one decimal place
-                fontSize = 10.sp,
+                text = "${relativeHumidityRounded}%",   // Format to one decimal place
+                fontSize = 15.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 2.dp)
             )
