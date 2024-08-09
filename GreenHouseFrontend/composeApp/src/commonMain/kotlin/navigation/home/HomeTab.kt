@@ -47,12 +47,14 @@ class HomeScreen: Screen {
             Text("Home")
         }
         // Box for the AirSettings
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.Start
-        ){
-            AirSettingsIconButton()
+        Box(){
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start
+            ){
+                AirSettingsIconButton()
+            }
         }
     }
 }
