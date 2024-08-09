@@ -115,6 +115,7 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.firebase.crashlytics.buildtools)
     implementation(libs.androidx.material)
+    implementation(libs.androidx.ui.text.android)
 }
 
 compose.desktop {
