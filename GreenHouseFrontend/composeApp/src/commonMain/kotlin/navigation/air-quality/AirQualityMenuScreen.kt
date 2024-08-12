@@ -19,13 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import kotlin.math.roundToInt
 
 
-class AirQualityMenuScreen: Screen {
+class AirQualityMenuScreen: ApplicationSlot {
 
     @Composable
     override fun Content(){
@@ -36,7 +35,6 @@ class AirQualityMenuScreen: Screen {
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             val relativeHumidity = 0.0
-//            Text("Air-Quality")
             Text("Relative Humidity: ${relativeHumidity}%")
         }
     }
