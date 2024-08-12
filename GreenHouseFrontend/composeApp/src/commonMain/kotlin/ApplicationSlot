@@ -1,7 +1,28 @@
 import cafe.adriel.voyager.core.screen.Screen
 
-interface ApplicationSlot: Screen{
-    fun getTitle(){}
-    fun getStatus(){}
-    fun setStatus(){}
+abstract class ApplicationSlot: Screen{
+    var screenTitle
+
+    @Composable
+    fun setScreen(screenTitle: String, contents: List<T>){
+        screenTitle = screenTitle;
+        for(content in contents){
+        }
+    }
+
+    @override Content(){
+        TopAppBarWithBackButton(screenTitle)
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            val relativeHumidity = 0.0
+            Text("Relative Humidity: ${relativeHumidity}%")
+        }
+    }
+    }
+    abstract fun getTitle()
+    abstract fun getStatus()
+    abstract fun setStatus()
 }
