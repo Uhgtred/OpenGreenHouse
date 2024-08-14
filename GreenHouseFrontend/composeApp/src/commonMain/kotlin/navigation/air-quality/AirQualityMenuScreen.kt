@@ -26,61 +26,62 @@ import kotlin.math.roundToInt
 
 class AirQualityMenuScreen: ApplicationSlot {
 
+    private var title = "Air-Quality"
+    private val relativeHumidity = 0.0
+    private val navigator = LocalNavigator.currentOrThrow
+
     @Composable
     override fun Content(){
-        TopAppBarWithBackButton("Air-Quality")
+        TopAppBarWithBackButton(title)
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
-            val relativeHumidity = 0.0
             Text("Relative Humidity: ${relativeHumidity}%")
         }
     }
-}
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopAppBarWithBackButton(title: String) {
-    val navigator = LocalNavigator.currentOrThrow
-    TopAppBar(
-        title = { Text(title) },
-        navigationIcon = {
-            IconButton(onClick = { navigator.popUntilRoot() }) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun TopAppBarWithBackButton(title: String) {
+        TopAppBar(
+            title = { Text(title) },
+            navigationIcon = {
+                IconButton(onClick = { navigator.popUntilRoot() }) {
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                }
             }
-        }
-    )
-}
+        )
+    }
 
-@Composable
-fun AirSettingsIconButton() {
-    val navigator = LocalNavigator.currentOrThrow
-    val relativeHumidity = 0.0
-    val relativeHumidityRounded = (relativeHumidity *10).roundToInt() / 10.0
+    @Composable
+    fun AirSettingsIconButton() {
+        val relativeHumidityRounded = (relativeHumidity *10).roundToInt() / 10.0
 
-    IconButton(
-            onClick = {navigator.push(AirQualityMenuScreen())},
-            modifier = Modifier
-                .size(width = 64.dp, height = 72.dp)
-                .padding(4.dp)
-        ) {
-        Column (
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ){
-            Icon(
-                imageVector = Icons.Default.Air,
-                contentDescription = "Air-Quality",
-                modifier = Modifier.size(32.dp) // Make icon bigger
-            )
-            Text(
-                text = "${relativeHumidityRounded}%",   // Format to one decimal place
-                fontSize = 15.sp,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 2.dp)
-            )
+        IconButton(
+                onClick = {navigator.push(AirQualityMenuScreen())},
+                modifier = Modifier
+                    .size(width = 64.dp, height = 72.dp)
+                    .padding(4.dp)
+            ) {
+            Column (
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ){
+                Icon(
+                    imageVector = Icons.Default.Air,
+                    contentDescription = title,
+                    modifier = Modifier.size(32.dp) // Set icon size
+                )
+                Text(
+                    text = "${relativeHumidityRounded}%",   // Format to one decimal place
+                    fontSize = 15.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(top = 2.dp)
+                )
+            }
         }
     }
 }

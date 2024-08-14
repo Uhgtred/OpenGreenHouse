@@ -10,10 +10,13 @@ abstract class ApplicationSlot: Screen{
         }
     }
 
-    @override Content(){
+
+    //TODO: This needs to be adapted. It needs to be generic so it can be used for many application-slots instead of just one specific.
+    @override Content(title: String, content: List){ // Todo: maybe one more argument for placement?
         TopAppBarWithBackButton(screenTitle)
         Column(
             modifier = Modifier.fillMaxSize(),
+            //Todo: need to find some way to arrange all the applications.
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
@@ -21,8 +24,10 @@ abstract class ApplicationSlot: Screen{
             Text("Relative Humidity: ${relativeHumidity}%")
         }
     }
-    }
+
     abstract fun getTitle()
+
     abstract fun getStatus()
+
     abstract fun setStatus()
 }
