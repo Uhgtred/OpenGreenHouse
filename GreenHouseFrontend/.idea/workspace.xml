@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62e33afb-7afd-47d6-b9d0-aaab71998122" name="Changes" comment="" />
+    <list default="true" id="62e33afb-7afd-47d6-b9d0-aaab71998122" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/navigation/ApplicationSlot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/navigation/ApplicationSlot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/navigation/air-quality/AirQualityMenuScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/navigation/air-quality/AirQualityMenuScreen.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +105,7 @@
     "external.system.has.shared.sources": "true",
     "git-widget-placeholder": "test-interface",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/u3130/Documents/GitHub/OpenGreenHouse",
+    "last_opened_file_path": "C:/Users/u3130/Documents/GitHub/OpenGreenHouse/GreenHouseFrontend",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",

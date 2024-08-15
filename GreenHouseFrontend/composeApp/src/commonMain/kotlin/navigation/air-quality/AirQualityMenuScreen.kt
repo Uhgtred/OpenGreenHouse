@@ -26,10 +26,20 @@ import kotlin.math.roundToInt
 
 class AirQualityMenuScreen: ApplicationSlot {
 
-    private var title = "Air-Quality"
-    private val relativeHumidity = 0.0
-    private val navigator = LocalNavigator.currentOrThrow
+    private val title = "Air-Quality"
+        get() = this.title
+    private var relativeHumidity = 0.0
+        get() = this.relativeHumidity
+        set(humidity){
+            setDataFromFloat(humidity)
+        }
+    private var navigator = LocalNavigator.currentOrThrow
 
+    ApplicationSlot.screenTitle = title
+    ApplicationSlot.screenContent = ["Relative Humidity: ${this.relativeHumidity}%"]
+    ApplicationSlot.Content()
+
+    /*
     @Composable
     override fun Content(){
         TopAppBarWithBackButton(title)
@@ -40,28 +50,14 @@ class AirQualityMenuScreen: ApplicationSlot {
         ){
             Text("Relative Humidity: ${relativeHumidity}%")
         }
-    }
-
-
-    @OptIn(ExperimentalMaterial3Api::class)
-    @Composable
-    fun TopAppBarWithBackButton(title: String) {
-        TopAppBar(
-            title = { Text(title) },
-            navigationIcon = {
-                IconButton(onClick = { navigator.popUntilRoot() }) {
-                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                }
-            }
-        )
-    }
+    }*/
 
     @Composable
     fun AirSettingsIconButton() {
-        val relativeHumidityRounded = (relativeHumidity *10).roundToInt() / 10.0
+        var relativeHumidityRounded = (this.relativeHumidity *10).roundToInt() / 10.0 // rounding the float-value to one digit
 
         IconButton(
-                onClick = {navigator.push(AirQualityMenuScreen())},
+                onClick = {this.navigator.push(AirQualityMenuScreen())},
                 modifier = Modifier
                     .size(width = 64.dp, height = 72.dp)
                     .padding(4.dp)
@@ -72,11 +68,11 @@ class AirQualityMenuScreen: ApplicationSlot {
             ){
                 Icon(
                     imageVector = Icons.Default.Air,
-                    contentDescription = title,
+                    contentDescription = this.title,
                     modifier = Modifier.size(32.dp) // Set icon size
                 )
                 Text(
-                    text = "${relativeHumidityRounded}%",   // Format to one decimal place
+                    text = "${this.relativeHumidityRounded}%",   // Format to one decimal place
                     fontSize = 15.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(top = 2.dp)
