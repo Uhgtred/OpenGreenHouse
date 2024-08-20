@@ -15,7 +15,8 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
-import navigation.air.AirSettingsIconButton
+import navigation.air.AirQualityMenuScreen
+import navigation.air.AirQualityMenuScreen.Companion.AirSettingsIconButton
 
 
 object HomeTab: Tab {
@@ -53,7 +54,9 @@ class HomeScreen: Screen {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.Start
             ){
-                AirSettingsIconButton()
+                val airScreen = AirQualityMenuScreen()
+                AirSettingsIconButton(airScreen)
+                airScreen.relativeHumidity = 20.0
             }
         }
     }
