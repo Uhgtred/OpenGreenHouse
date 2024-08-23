@@ -15,8 +15,8 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
-import navigation.air.AirQualityMenuScreen
-import navigation.air.AirQualityMenuScreen.Companion.AirSettingsIconButton
+import navigation.air.AirQualityIconButtonViewModel
+import navigation.air.AirSettingsIconButton
 
 
 object HomeTab: Tab {
@@ -38,8 +38,12 @@ object HomeTab: Tab {
     }
 
 class HomeScreen: Screen {
+
+    private val airQualityIconButtonViewModel = AirQualityIconButtonViewModel(initialHumidity = 0.0, initialTemperature = 0.0)
+
     @Composable
     override fun Content() {
+
         Column (
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -54,9 +58,7 @@ class HomeScreen: Screen {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.Start
             ){
-                val airScreen = AirQualityMenuScreen()
-                AirSettingsIconButton(airScreen)
-                airScreen.relativeHumidity = 20.0
+                AirSettingsIconButton(airQualityIconButtonViewModel)
             }
         }
     }
@@ -71,5 +73,4 @@ class HomeScreen: Screen {
 
             return TabOptions(index, title, icon)
         }
-
 }
