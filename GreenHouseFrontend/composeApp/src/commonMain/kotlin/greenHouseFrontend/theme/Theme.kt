@@ -249,6 +249,7 @@ val unspecified_scheme = ColorFamily(
 
 @Composable
 fun AppTheme(
+    //Todo: make this only be darkmode, when darmode is system-default.
 //    darkTheme: Boolean = isSystemInDarkTheme(),
     darkTheme: Boolean = true,
     content: @Composable() () -> Unit

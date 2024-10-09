@@ -30,8 +30,8 @@ fun App() {
                         containerColor = colorScheme.surface,
                         contentColor = colorScheme.onSurface
                     ){
-                        TabItem(HomeTab)
-                        TabItem(SettingsMenuTab)
+                        Box(){ TabItem(HomeTab) }
+                        Box(){ TabItem(SettingsMenuTab) }
                     }
                 }
             ) {CurrentTab()}
